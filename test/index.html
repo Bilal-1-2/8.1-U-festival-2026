@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Size Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .dimension {
+        font-size: 48px;
+        font-weight: bold;
+        margin: 10px;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="width" class="dimension">Width: 0px</div>
+    <div id="height" class="dimension">Height: 0px</div>
+
+    <script>
+      function updateDimensions() {
+        document.getElementById("width").textContent =
+          "Width: " + window.innerWidth + "px";
+        document.getElementById("height").textContent =
+          "Height: " + window.innerHeight + "px";
+      }
+
+      // Update on load
+      updateDimensions();
+
+      // Update on resize
+      window.addEventListener("resize", updateDimensions);
+    </script>
+  </body>
+</html>

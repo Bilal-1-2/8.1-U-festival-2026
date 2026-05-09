@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700&display=swap");
+* {
+  font-family: "Sansation", sans-serif;
+  font-style: normal;
+}
+header {
+  width: 96%;
+  padding: 2%;
+  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+}
+.brand-container {
+  display: flex;
+}
+.brand-logo {
+  height: 3.7rem;
+  margin-right: 15px;
+  /* margin-top: 7px; */
+}
+.brand-title {
+  /* font-family: "Sansation", sans-serif; */
+  font-weight: 700;
+  /* font-style: normal; */
+  font-size: 2rem;
+  margin-top: 16px;
+}
+
+.header-controls {
+  width: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.theme-toggle {
+  height: 2.7rem;
+}
+.language-flag {
+  width: 2.2rem;
+  height: 1.6rem;
+}
+
+body {
+  margin: 0px;
+  background-color: rgb(255, 0, 0);
+}
+main {
+  width: 96%;
+  padding: 2%;
+  height: 76vh;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+main .screen {
+  display: none;
+}
+footer {
+  width: 96%;
+  padding: 2%;
+  height: 9vh;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: #ff3228;
+}
+
+.filter-black {
+  filter: invert(94%) sepia(5%) saturate(2%) hue-rotate(211deg) brightness(111%)
+    contrast(101%);
+  height: 2.2rem;
+  width: 4rem;
+}
+
+footer img {
+  border: black;
+  border-radius: 20%;
+}
+
+.footer-btns {
+  background-color: transparent;
+  border: none;
+}
+
+footer p {
+  color: white;
+  font-size: 1rem;
+}
+
+footer .footer-btns.active {
+  /* outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 6px; */
+}
+
+footer .footer-btns.active .filter-black {
+  filter: invert(0%) sepia(0%) saturate(7474%) hue-rotate(239deg)
+    brightness(102%) contrast(99%);
+}
+
+/* .sansation-light {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.sansation-regular {
+  font-family: "Sansation", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sansation-bold {
+  font-family: "Sansation", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.sansation-light-italic {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.sansation-regular-italic {
+  font-family: "Sansation", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sansation-bold-italic {
+  font-family: "Sansation", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+} */
