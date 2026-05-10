@@ -13,6 +13,11 @@ This update makes your footer buttons actually switch the visible content inside
 
 On `DOMContentLoaded`, the script:
 
+- finds footer buttons and screens
+- on click: removes `.active` from all buttons, adds `.active` to the clicked one, then hides all screens and shows the matching screen
+
+Key robustness fix: in your HTML the `data-target` attribute is on the **img** inside the button (not always on the `<button>` itself). The updated JS reads `data-target` from either the button or its child element, so switching works reliably.
+
 1. Finds all footer buttons: `footer .footer-btns`
 2. Finds all screens: `main .screen[data-screen]`
 3. On click:

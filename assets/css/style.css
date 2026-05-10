@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700&display=swap");
+
+:root {
+  /* Palette */
+  --accent: #f03228; /* Vermilion */
+  --base: #ffffff; /* White */
+  --primary: #000000; /* Black */
+  --secondary: #247ba0; /* Cerulean */
+  --info: #e3b505; /* Saffron */
+}
+
 * {
   font-family: "Sansation", sans-serif;
   font-style: normal;
@@ -47,8 +57,8 @@ body {
   background-color: rgb(255, 0, 0);
 }
 main {
-  width: 96%;
-  padding: 2%;
+  width: 100%;
+  /* padding: 2%; */
   height: 76vh;
   display: flex;
   justify-content: space-between;
@@ -91,17 +101,81 @@ footer p {
   font-size: 1rem;
 }
 
-footer .footer-btns.active {
-  /* outline: 2px solid rgba(255, 255, 255, 0.9);
-  outline-offset: 6px; */
-}
+/* footer .footer-btns.active {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 6px;
+  border-radius: 14px;
+} */
 
 footer .footer-btns.active .filter-black {
   filter: invert(0%) sepia(0%) saturate(7474%) hue-rotate(239deg)
     brightness(102%) contrast(99%);
 }
 
+/* Screen-specific styling */
+main .screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+main .screen[data-screen="home"] {
+  color: white;
+  background: #ffffff;
+  overflow-y: auto;
+}
+.home-titel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 10px 2px 20px 3px;
+  margin-bottom: 30px;
+}
+.home-titel p {
+  margin: 4px;
+  color: black;
+  font-weight: 700;
+}
+.home-meldingen {
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 0px 2px 20px 10px;
+}
+.home-meldingen p {
+  color: black;
+  font-weight: 400;
+  /* border: none; */
+  /* border-bottom: 1px solid black; */
+}
+
+main .screen[data-screen="info"] {
+  color: #111;
+  background: #ffffff;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+main .screen[data-screen="lineup"] {
+  color: #111;
+  background: #06d6a0;
+
+  padding: 16px;
+}
+
+main .screen[data-screen="map"] {
+  color: #fff;
+  background: #118ab2;
+
+  padding: 16px;
+}
+
 /* .sansation-light {
+
   font-family: "Sansation", sans-serif;
   font-weight: 300;
   font-style: normal;

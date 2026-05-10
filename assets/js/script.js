@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerButtons = document.querySelectorAll("footer .footer-btns");
   const screens = document.querySelectorAll("main .screen[data-screen]");
 
-  if (!footerButtons.length) return;
+  if (!footerButtons.length || !screens.length) return;
 
   const hideAllScreens = () => {
     screens.forEach((s) => {
@@ -23,23 +23,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeBtn) activeBtn.classList.add("active");
   };
 
-  const activate = (btn) => {
-    setActive(btn);
+  const activateFromButton = (btn) => {
+    if (!btn) return;
 
-    const target = btn.getAttribute("data-target");
+    // data-target may be on the <button> or on its child <img>
+    const target =
+      btn.getAttribute("data-target") ||
+      btn.querySelector("[data-target]")?.getAttribute("data-target");
+
     if (!target) return;
 
+    setActive(btn);
     hideAllScreens();
     showScreen(target);
   };
 
   footerButtons.forEach((btn) => {
-    btn.addEventListener("click", () => activate(btn));
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      activateFromButton(btn);
+    });
   });
 
   // Initialize to Home
   const homeBtn =
-    document.querySelector('footer .footer-btns[data-target="home"]') ||
+    document.querySelector('footer .footer-btns[data-target="info"]') ||
+    document
+      .querySelector('footer .footer-btns [data-target="info"]')
+      ?.closest(".footer-btns") ||
     footerButtons[0];
-  activate(homeBtn);
+
+  activateFromButton(homeBtn);
 });
