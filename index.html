@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/info.css" />
     <title>U festival</title>
   </head>
   <body>
@@ -55,9 +56,11 @@
           <p>INFORMATIE</p>
         </div>
 
-        <div class="info-algemeen">
-          <p class="info-section-title">Algemeen & contact</p>
-          <div class="info-algemeen-text">
+        <div class="info-algemeen-dropdown">
+          <button onclick="myFunction()" class="info-algemeen-dropbtn">
+            Algemeen & contact
+          </button>
+          <div id="info-algemeen-myDropdown" class="info-algemeen-dropdown-content">
             <p>
               Het ❤️U Festival is voor (nieuwe) studenten in de regio Utrecht en
               is een aanvulling op UIT.
@@ -72,9 +75,13 @@
             </p>
           </div>
         </div>
-        <div>
-          <p>Bereikbaarheid</p>
-          <div class="info-Bereikbaarheid-text">
+
+        <div class="info-Bereikbaarheid-dropdown">
+          <button onclick="myFunction2()" class="info-Bereikbaarheid-dropbtn">
+            Bereikbaarheid 
+          </button>
+          <div id="info-Bereikbaarheid-myDropdown" class="info-Bereikbaarheid-dropdown-content">
+            <div class="info-Bereikbaarheid-text">
             <p class="info-subtitle">Fiets</p>
             <p>
               Er is een grote gratis fietsenstalling aanwezig waar je jouw fiets
@@ -114,6 +121,9 @@
             </p>
           </div>
         </div>
+          </div>
+        </div>
+
 
         <div class="info-lockers">
           <p>Lockers</p>

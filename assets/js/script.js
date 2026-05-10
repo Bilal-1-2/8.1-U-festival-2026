@@ -55,3 +55,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   activateFromButton(homeBtn);
 });
+
+
+function myFunction() {
+  document.getElementById("info-algemeen-myDropdown").classList.toggle("show-algemeen");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".info-algemeen-dropbtn")) {
+    var dropdowns = document.getElementsByClassName("info-algemeen-dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show-algemeen")) {
+        openDropdown.classList.remove("show-algemeen");
+      }
+    }
+  }
+};
+function myFunction2() {
+  document.getElementById("info-Bereikbaarheid-myDropdown").classList.toggle("show-Bereikbaarheid");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".info-Bereikbaarheid-dropbtn")) {
+    var dropdowns = document.getElementsByClassName("info-Bereikbaarheid-dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show-Bereikbaarheid")) {
+        openDropdown.classList.remove("show-Bereikbaarheid");
+      }
+    }
+  }
+};
