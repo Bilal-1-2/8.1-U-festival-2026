@@ -54,7 +54,7 @@ header {
 
 body {
   margin: 0px;
-  background-color: var(--base);
+  background-color: var(--accent);
   color: var(--primary);
 }
 
@@ -84,7 +84,7 @@ footer {
 .filter-black {
   filter: invert(94%) sepia(5%) saturate(2%) hue-rotate(211deg) brightness(111%)
     contrast(101%);
-  height: 2.2rem;
+  height: 3.2rem;
   width: 4rem;
 }
 
@@ -147,12 +147,13 @@ main .screen[data-screen="home"] {
   border: 2px solid black;
   border-radius: 7px;
   padding: 0px 2px 20px 10px;
+  margin-top: 15px;
 }
 .home-meldingen p {
   color: black;
   font-weight: 400;
   /* border: none; */
-  /* border-bottom: 1px solid black; */
+  /* border: 1px solid black; */
 }
 
 main .screen[data-screen="info"] {
@@ -162,10 +163,29 @@ main .screen[data-screen="info"] {
   padding: 16px;
 }
 .info-subtitle {
-  color: #f03228;
+  color: #247ba0;
   font-weight: 700;
-  margin: 14px 0 6px 0;
+  margin: 14px 0 10px 0;
+  font-size: 1.1rem;
+  /* make subtitles inside dropdowns match the dropdown-content rhythm */
+  padding: 0;
 }
+
+/* Ensure dropdown body subtitles use the same spacing everywhere */
+.info-algemeen-dropdown-content .info-subtitle,
+.info-Bereikbaarheid-dropdown-content .info-subtitle {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* Other info blocks */
+.info-lockers-text .info-subtitle,
+.info-faq-text .info-subtitle,
+.info-GoldenGLU-text .info-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 main .screen[data-screen="lineup"] {
   color: #111;

@@ -47,47 +47,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize to Home
   const homeBtn =
-    document.querySelector('footer .footer-btns[data-target="info"]') ||
+    document.querySelector('footer .footer-btns[data-target="home"]') ||
     document
-      .querySelector('footer .footer-btns [data-target="info"]')
+      .querySelector('footer .footer-btns [data-target="home"]')
       ?.closest(".footer-btns") ||
     footerButtons[0];
 
   activateFromButton(homeBtn);
 });
 
-
 function myFunction() {
-  document.getElementById("info-algemeen-myDropdown").classList.toggle("show-algemeen");
+  document
+    .getElementById("info-algemeen-myDropdown")
+    .classList.toggle("show-algemeen");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches(".info-algemeen-dropbtn")) {
-    var dropdowns = document.getElementsByClassName("info-algemeen-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show-algemeen")) {
-        openDropdown.classList.remove("show-algemeen");
-      }
-    }
-  }
-};
 function myFunction2() {
-  document.getElementById("info-Bereikbaarheid-myDropdown").classList.toggle("show-Bereikbaarheid");
+  document
+    .getElementById("info-Bereikbaarheid-myDropdown")
+    .classList.toggle("show-Bereikbaarheid");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-  if (!event.target.matches(".info-Bereikbaarheid-dropbtn")) {
-    var dropdowns = document.getElementsByClassName("info-Bereikbaarheid-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show-Bereikbaarheid")) {
-        openDropdown.classList.remove("show-Bereikbaarheid");
-      }
-    }
-  }
-};
+// Close all dropdowns when one is opened (optional, but prevents multiple sections staying open)
+function closeAllInfoDropdowns() {
+  document
+    .getElementById("info-algemeen-myDropdown")
+    ?.classList.remove("show-algemeen");
+
+  document
+    .getElementById("info-Bereikbaarheid-myDropdown")
+    ?.classList.remove("show-Bereikbaarheid");
+}

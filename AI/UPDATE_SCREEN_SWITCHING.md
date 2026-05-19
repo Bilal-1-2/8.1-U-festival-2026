@@ -1,4 +1,4 @@
-# What I changed: Footer click switches screens (no PHP)
+# What I changed: Footer click switches screens 
 
 This update makes your footer buttons actually switch the visible content inside `index.html`.
 
@@ -9,7 +9,7 @@ This update makes your footer buttons actually switch the visible content inside
 
 ## What I changed now
 
-### 1) Updated `assets/js/script.js`
+### 1 Updated `assets/js/script.js`
 
 On `DOMContentLoaded`, the script:
 
