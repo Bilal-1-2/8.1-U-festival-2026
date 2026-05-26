@@ -1,0 +1,2 @@
+- [x] Update info.json with the requested lineup acts for **Zaterdag** (Poton, The Lake, The Club, Hanggar) with names only (no time/video URL)
+- [x] Validate info.json remains valid JSON

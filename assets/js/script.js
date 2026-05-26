@@ -78,3 +78,49 @@ function closeAllInfoDropdowns() {
     .getElementById("info-Bereikbaarheid-myDropdown")
     ?.classList.remove("show-Bereikbaarheid");
 }
+
+// --- Lineup horizontal positioning (acts) ---
+// 15 min = 60px (so 1 hour = 240px)
+const LINEUP_DAY_START_MIN = 10 * 60; // 10:00
+const PX_PER_MIN = 57.5 / 15;
+
+function parseTimeToMinutes(t) {
+  // expects "HH:MM"
+  const [h, m] = t.split(":").map((n) => Number(n));
+  return h * 60 + m;
+}
+
+// Example placeholder: create a bar at a specific time.
+// Replace the data with your real lineup data.
+function renderExampleActs(dayKey) {
+  const layer = document.getElementById(`acts-layer-${dayKey}`);
+  if (!layer) return;
+
+  layer.innerHTML = "";
+
+  // Example: one act from 12:15 to 15:15
+  const start = parseTimeToMinutes("12:15");
+  const end = parseTimeToMinutes("15:15");
+  // const start = parseTimeToMinutes("12:15");
+  // const end = parseTimeToMinutes("15:15");
+
+  const startMin = start - LINEUP_DAY_START_MIN;
+  const endMin = end - LINEUP_DAY_START_MIN;
+
+  const leftPx = startMin * PX_PER_MIN;
+  const widthPx = (endMin - startMin) * PX_PER_MIN;
+
+  const bar = document.createElement("div");
+  bar.className = "lineup-act-bar";
+  bar.style.left = `${leftPx}px`;
+  bar.style.width = `${widthPx}px`;
+  bar.textContent = "Act (12:15-15:15)";
+
+  layer.appendChild(bar);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // render example bars for both days
+  renderExampleActs("zaterdag");
+  renderExampleActs("zondag");
+});

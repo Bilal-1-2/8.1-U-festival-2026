@@ -40,3 +40,8 @@ answer is UPDATE_SCREEN_SWITCHING.md
 make <p class="lineup-uur-nr">10:00</p> copy and paste them but add 15 min each time untill u reach 23:45
 
 how can i rotate the <p> 90 degrees
+
+
+
+
+how can i make a div that the width of it can go widder and begins in spefiek location like if i changed the the time it begins instead of 11:15 it s 12:15 and to 15:15 
