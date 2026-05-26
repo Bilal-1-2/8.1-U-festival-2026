@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize to Home
   const homeBtn =
-    document.querySelector('footer .footer-btns[data-target="home"]') ||
+    document.querySelector('footer .footer-btns[data-target="lineup"]') ||
     document
-      .querySelector('footer .footer-btns [data-target="home"]')
+      .querySelector('footer .footer-btns [data-target="lineup"]')
       ?.closest(".footer-btns") ||
     footerButtons[0];
 

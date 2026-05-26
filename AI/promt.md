@@ -35,3 +35,8 @@ i tried it didnt switch
 do a md file explaining how to fix it .
 
 answer is UPDATE_SCREEN_SWITCHING.md
+
+
+make <p class="lineup-uur-nr">10:00</p> copy and paste them but add 15 min each time untill u reach 23:45
+
+how can i rotate the <p> 90 degrees

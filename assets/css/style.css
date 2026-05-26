@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700&display=swap");
+@import url("info.css");
+@import url("lineup.css");
 
 :root {
   /* Palette */
@@ -187,12 +189,7 @@ main .screen[data-screen="info"] {
 }
 
 
-main .screen[data-screen="lineup"] {
-  color: #111;
-  background: #06d6a0;
 
-  padding: 16px;
-}
 
 main .screen[data-screen="map"] {
   color: #fff;
