@@ -1,126 +1,202 @@
-// Footer active button handling + screen switching
-
+// ── Footer navigation ──────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const footerButtons = document.querySelectorAll("footer .footer-btns");
   const screens = document.querySelectorAll("main .screen[data-screen]");
 
   if (!footerButtons.length || !screens.length) return;
 
-  const hideAllScreens = () => {
-    screens.forEach((s) => {
-      s.style.display = "none";
-    });
-  };
+  const hideAllScreens = () => screens.forEach(s => s.style.display = "none");
 
   const showScreen = (id) => {
     const el = document.querySelector(`main .screen[data-screen="${id}"]`);
-    if (!el) return;
-    el.style.display = "block";
+    if (el) el.style.display = "flex";
   };
 
   const setActive = (activeBtn) => {
-    footerButtons.forEach((btn) => btn.classList.remove("active"));
+    footerButtons.forEach(btn => btn.classList.remove("active"));
     if (activeBtn) activeBtn.classList.add("active");
   };
 
   const activateFromButton = (btn) => {
     if (!btn) return;
-
-    // data-target may be on the <button> or on its child <img>
     const target =
       btn.getAttribute("data-target") ||
       btn.querySelector("[data-target]")?.getAttribute("data-target");
-
     if (!target) return;
-
     setActive(btn);
     hideAllScreens();
     showScreen(target);
   };
 
-  footerButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+  footerButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
       e.preventDefault();
       activateFromButton(btn);
     });
   });
 
-  // Initialize to Home
+  // Default: home
   const homeBtn =
-    document.querySelector('footer .footer-btns[data-target="lineup"]') ||
-    document
-      .querySelector('footer .footer-btns [data-target="lineup"]')
-      ?.closest(".footer-btns") ||
+    document.querySelector('footer .footer-btns[data-target="home"]') ||
+    document.querySelector('footer .footer-btns [data-target="home"]')?.closest(".footer-btns") ||
     footerButtons[0];
-
   activateFromButton(homeBtn);
 });
 
+// ── Info dropdowns ─────────────────────────────────────────────────────────
 function myFunction() {
-  document
-    .getElementById("info-algemeen-myDropdown")
+  document.getElementById("info-algemeen-myDropdown")
     .classList.toggle("show-algemeen");
 }
-
 function myFunction2() {
-  document
-    .getElementById("info-Bereikbaarheid-myDropdown")
+  document.getElementById("info-Bereikbaarheid-myDropdown")
     .classList.toggle("show-Bereikbaarheid");
 }
 
-// Close all dropdowns when one is opened (optional, but prevents multiple sections staying open)
-function closeAllInfoDropdowns() {
-  document
-    .getElementById("info-algemeen-myDropdown")
-    ?.classList.remove("show-algemeen");
+// ── Day switcher ───────────────────────────────────────────────────────────
+function showLineupDay(day) {
+  ["zaterdag", "zondag"].forEach(d => {
+    const el = document.getElementById(`lineup-${d}`);
+    if (el) el.style.display = d === day ? "flex" : "none";
+  });
 
-  document
-    .getElementById("info-Bereikbaarheid-myDropdown")
-    ?.classList.remove("show-Bereikbaarheid");
+  document.querySelectorAll(".lineup-dag-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.day === day);
+  });
 }
 
-// --- Lineup horizontal positioning (acts) ---
-// 15 min = 60px (so 1 hour = 240px)
-const LINEUP_DAY_START_MIN = 10 * 60; // 10:00
-const PX_PER_MIN = 57.5 / 15;
+// ── Lineup rendering ───────────────────────────────────────────────────────
+const DAY_START_MIN  = 10 * 60;   // 10:00
+const DAY_END_MIN    = 24 * 60;   // 24:00 (last tick shown)
+const PX_PER_15MIN   = 57.5;
+const PX_PER_MIN     = PX_PER_15MIN / 15;
+const STAGE_ORDER    = ["poton", "club", "lake", "hangar"];
+const STAGE_LABELS   = { poton: "Poton", club: "Club", lake: "Lake", hangar: "Hangar" };
+const TOTAL_MINUTES  = DAY_END_MIN - DAY_START_MIN;  // 840 min
+const TOTAL_TICKS    = TOTAL_MINUTES / 15;            // 56 ticks
 
-function parseTimeToMinutes(t) {
-  // expects "HH:MM"
-  const [h, m] = t.split(":").map((n) => Number(n));
-  return h * 60 + m;
+function parseMin(t) {
+  const [h, m] = String(t ?? "").trim().split(":").map(Number);
+  return isNaN(h) || isNaN(m) ? NaN : h * 60 + m;
 }
 
-// Example placeholder: create a bar at a specific time.
-// Replace the data with your real lineup data.
-function renderExampleActs(dayKey) {
-  const layer = document.getElementById(`acts-layer-${dayKey}`);
-  if (!layer) return;
+function buildTimeHeader() {
+  const header = document.createElement("div");
+  header.className = "lineup-time-header";
 
-  layer.innerHTML = "";
-
-  // Example: one act from 12:15 to 15:15
-  const start = parseTimeToMinutes("12:15");
-  const end = parseTimeToMinutes("15:15");
-  // const start = parseTimeToMinutes("12:15");
-  // const end = parseTimeToMinutes("15:15");
-
-  const startMin = start - LINEUP_DAY_START_MIN;
-  const endMin = end - LINEUP_DAY_START_MIN;
-
-  const leftPx = startMin * PX_PER_MIN;
-  const widthPx = (endMin - startMin) * PX_PER_MIN;
-
-  const bar = document.createElement("div");
-  bar.className = "lineup-act-bar";
-  bar.style.left = `${leftPx}px`;
-  bar.style.width = `${widthPx}px`;
-  bar.textContent = "Act (12:15-15:15)";
-
-  layer.appendChild(bar);
+  for (let i = 0; i <= TOTAL_TICKS; i++) {
+    const tick = document.createElement("div");
+    tick.className = "lineup-time-tick";
+    const totalMin = DAY_START_MIN + i * 15;
+    const h = Math.floor(totalMin / 60);
+    const m = totalMin % 60;
+    tick.textContent = `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
+    header.appendChild(tick);
+  }
+  return header;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // render example bars for both days
-  renderExampleActs("zaterdag");
-  renderExampleActs("zondag");
-});
+function renderActsForDay(dayKey, acts) {
+  const container = document.getElementById(`lineup-${dayKey}`);
+  if (!container) return;
+
+  // Clear previous render (keep the structure intact if already built)
+  container.innerHTML = "";
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+
+  // ── Table ──
+  const table = document.createElement("div");
+  table.className = "lineup-table";
+  container.appendChild(table);
+
+  // Stage labels column
+  const stagesCol = document.createElement("div");
+  stagesCol.className = "lineup-stages";
+  STAGE_ORDER.forEach(key => {
+    const lbl = document.createElement("div");
+    lbl.className = "lineup-stage-label";
+    lbl.textContent = STAGE_LABELS[key];
+    stagesCol.appendChild(lbl);
+  });
+
+  // Schedule column
+  const scheduleCol = document.createElement("div");
+  scheduleCol.className = "lineup-schedule";
+
+  scheduleCol.appendChild(buildTimeHeader());
+
+  // Group acts by stage
+  const byStage = {};
+  STAGE_ORDER.forEach(k => byStage[k] = []);
+  (acts || []).forEach(a => {
+    if (a?.stage && byStage[a.stage]) byStage[a.stage].push(a);
+  });
+
+  STAGE_ORDER.forEach(stageKey => {
+    const row = document.createElement("div");
+    row.className = "lineup-row";
+    // Width = total ticks × px/tick
+    row.style.width = `${(TOTAL_TICKS) * PX_PER_15MIN}px`;
+
+    byStage[stageKey].forEach(act => {
+      const start = parseMin(act["begin-time"]);
+      const end   = parseMin(act["end-time"]);
+      if (isNaN(start) || isNaN(end) || end <= start) return;
+
+      const leftPx  = (start - DAY_START_MIN) * PX_PER_MIN +10;
+      const widthPx = (end - start) * PX_PER_MIN - 2; // 2px gap
+
+      if (!isFinite(leftPx) || !isFinite(widthPx) || widthPx <= 0) return;
+
+      const bar = document.createElement("div");
+      bar.className = "lineup-act-bar";
+      bar.style.left  = `${leftPx}px`;
+      bar.style.width = `${widthPx}px`;
+      if (act.description) bar.title = act.description;
+
+      const name = document.createElement("span");
+      name.className = "act-name";
+      name.textContent = act.name || "Act";
+
+      const time = document.createElement("span");
+      time.className = "act-time";
+      time.textContent = `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
+
+      bar.appendChild(name);
+      bar.appendChild(time);
+      row.appendChild(bar);
+    });
+
+    scheduleCol.appendChild(row);
+  });
+
+  table.appendChild(stagesCol);
+  table.appendChild(scheduleCol);
+}
+
+async function loadAndRenderLineup() {
+  try {
+    const res = await fetch("info.json");
+    if (!res.ok) throw new Error(`Failed: ${res.status}`);
+    const data = await res.json();
+    if (!Array.isArray(data)) return;
+
+    const byDay = Object.fromEntries(data.map(d => [d.day, d.acts]));
+    renderActsForDay("zaterdag", byDay["zaterdag"] ?? []);
+    renderActsForDay("zondag",   byDay["zondag"]   ?? []);
+
+    // Show Saturday by default; hide Sunday
+    const zondag = document.getElementById("lineup-zondag");
+    if (zondag) zondag.style.display = "none";
+
+    // Mark Saturday button active
+    const btns = document.querySelectorAll(".lineup-dag-btn");
+    btns.forEach(b => b.classList.toggle("active", b.dataset.day === "zaterdag"));
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadAndRenderLineup);

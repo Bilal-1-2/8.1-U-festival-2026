@@ -52,6 +52,7 @@
 
         </div>
       </section>
+      
       <!-- info page -->
       <section class="screen" data-screen="info">
         <div class="info-algemeen-dropdown">
@@ -194,165 +195,14 @@
         </div>
       </section>
       <!-- lineup page -->
-<section class="screen" data-screen="lineup">
-      <div class="lineup-dag-btn-container">
-        <button class="lineup-dag-btn" onclick="showLineupDay('zaterdag')">Zaterdag</button>
-        <button class="lineup-dag-btn" onclick="showLineupDay('zondag')">Zondag</button>
-      </div>
-
-      <!-- Day specific content -->
-      <div id="lineup-zaterdag" class="lineup-main">
-        <div class="lineup-uur">
-          <div class="lineup-grid" aria-hidden="true"></div>
-          <p class="lineup-uur-nr">10:00</p>
-          <p class="lineup-uur-nr">10:15</p>
-          <p class="lineup-uur-nr">10:30</p>
-          <p class="lineup-uur-nr">10:45</p>
-          <p class="lineup-uur-nr">11:00</p>
-          <p class="lineup-uur-nr">11:15</p>
-          <p class="lineup-uur-nr">11:30</p>
-          <p class="lineup-uur-nr">11:45</p>
-          <p class="lineup-uur-nr">12:00</p>
-          <p class="lineup-uur-nr">12:15</p>
-          <p class="lineup-uur-nr">12:30</p>
-          <p class="lineup-uur-nr">12:45</p>
-          <p class="lineup-uur-nr">13:00</p>
-          <p class="lineup-uur-nr">13:15</p>
-          <p class="lineup-uur-nr">13:30</p>
-          <p class="lineup-uur-nr">13:45</p>
-          <p class="lineup-uur-nr">14:00</p>
-          <p class="lineup-uur-nr">14:15</p>
-          <p class="lineup-uur-nr">14:30</p>
-          <p class="lineup-uur-nr">14:45</p>
-          <p class="lineup-uur-nr">15:00</p>
-          <p class="lineup-uur-nr">15:15</p>
-          <p class="lineup-uur-nr">15:30</p>
-          <p class="lineup-uur-nr">15:45</p>
-          <p class="lineup-uur-nr">16:00</p>
-          <p class="lineup-uur-nr">16:15</p>
-          <p class="lineup-uur-nr">16:30</p>
-          <p class="lineup-uur-nr">16:45</p>
-          <p class="lineup-uur-nr">17:00</p>
-          <p class="lineup-uur-nr">17:15</p>
-          <p class="lineup-uur-nr">17:30</p>
-          <p class="lineup-uur-nr">17:45</p>
-          <p class="lineup-uur-nr">18:00</p>
-          <p class="lineup-uur-nr">18:15</p>
-          <p class="lineup-uur-nr">18:30</p>
-          <p class="lineup-uur-nr">18:45</p>
-          <p class="lineup-uur-nr">19:00</p>
-          <p class="lineup-uur-nr">19:15</p>
-          <p class="lineup-uur-nr">19:30</p>
-          <p class="lineup-uur-nr">19:45</p>
-          <p class="lineup-uur-nr">20:00</p>
-          <p class="lineup-uur-nr">20:15</p>
-          <p class="lineup-uur-nr">20:30</p>
-          <p class="lineup-uur-nr">20:45</p>
-          <p class="lineup-uur-nr">21:00</p>
-          <p class="lineup-uur-nr">21:15</p>
-          <p class="lineup-uur-nr">21:30</p>
-          <p class="lineup-uur-nr">21:45</p>
-          <p class="lineup-uur-nr">22:00</p>
-          <p class="lineup-uur-nr">22:15</p>
-          <p class="lineup-uur-nr">22:30</p>
-          <p class="lineup-uur-nr">22:45</p>
-          <p class="lineup-uur-nr">23:00</p>
-          <p class="lineup-uur-nr">23:15</p>
-          <p class="lineup-uur-nr">23:30</p>
-          <p class="lineup-uur-nr">23:45</p>
-
+      <section class="screen" data-screen="lineup">
+        <div class="lineup-dag-btn-container">
+          <button class="lineup-dag-btn" data-day="zaterdag" onclick="showLineupDay('zaterdag')">Zaterdag</button>
+          <button class="lineup-dag-btn" data-day="zondag"   onclick="showLineupDay('zondag')">Zondag</button>
         </div>
-        <div class="lineup-acts">
-<div class="lineup-plaats">
-  <p>Poton</p>
-  <p>Clun</p>
-  <p>Lake</p>
-  <p>Hangar</p>
-</div>
-          <div class="lineup-acts-layer" id="acts-layer-zaterdag">
-
-          </div>
-
-
-</div>
-</div>
-
-<div id="lineup-zondag" class="lineup-main" style="display:none;">
-        <div class="lineup-uur">
-
-
-
-          <p class="lineup-uur-nr">10:00</p>
-          <p class="lineup-uur-nr">10:15</p>
-          <p class="lineup-uur-nr">10:30</p>
-          <p class="lineup-uur-nr">10:45</p>
-          <p class="lineup-uur-nr">11:00</p>
-          <p class="lineup-uur-nr">11:15</p>
-          <p class="lineup-uur-nr">11:30</p>
-          <p class="lineup-uur-nr">11:45</p>
-          <p class="lineup-uur-nr">12:00</p>
-          <p class="lineup-uur-nr">12:15</p>
-          <p class="lineup-uur-nr">12:30</p>
-          <p class="lineup-uur-nr">12:45</p>
-          <p class="lineup-uur-nr">13:00</p>
-          <p class="lineup-uur-nr">13:15</p>
-          <p class="lineup-uur-nr">13:30</p>
-          <p class="lineup-uur-nr">13:45</p>
-          <p class="lineup-uur-nr">14:00</p>
-          <p class="lineup-uur-nr">14:15</p>
-          <p class="lineup-uur-nr">14:30</p>
-          <p class="lineup-uur-nr">14:45</p>
-          <p class="lineup-uur-nr">15:00</p>
-          <p class="lineup-uur-nr">15:15</p>
-          <p class="lineup-uur-nr">15:30</p>
-          <p class="lineup-uur-nr">15:45</p>
-          <p class="lineup-uur-nr">16:00</p>
-          <p class="lineup-uur-nr">16:15</p>
-          <p class="lineup-uur-nr">16:30</p>
-          <p class="lineup-uur-nr">16:45</p>
-          <p class="lineup-uur-nr">17:00</p>
-          <p class="lineup-uur-nr">17:15</p>
-          <p class="lineup-uur-nr">17:30</p>
-          <p class="lineup-uur-nr">17:45</p>
-          <p class="lineup-uur-nr">18:00</p>
-          <p class="lineup-uur-nr">18:15</p>
-          <p class="lineup-uur-nr">18:30</p>
-          <p class="lineup-uur-nr">18:45</p>
-          <p class="lineup-uur-nr">19:00</p>
-          <p class="lineup-uur-nr">19:15</p>
-          <p class="lineup-uur-nr">19:30</p>
-          <p class="lineup-uur-nr">19:45</p>
-          <p class="lineup-uur-nr">20:00</p>
-          <p class="lineup-uur-nr">20:15</p>
-          <p class="lineup-uur-nr">20:30</p>
-          <p class="lineup-uur-nr">20:45</p>
-          <p class="lineup-uur-nr">21:00</p>
-          <p class="lineup-uur-nr">21:15</p>
-          <p class="lineup-uur-nr">21:30</p>
-          <p class="lineup-uur-nr">21:45</p>
-          <p class="lineup-uur-nr">22:00</p>
-          <p class="lineup-uur-nr">22:15</p>
-          <p class="lineup-uur-nr">22:30</p>
-          <p class="lineup-uur-nr">22:45</p>
-          <p class="lineup-uur-nr">23:00</p>
-          <p class="lineup-uur-nr">23:15</p>
-          <p class="lineup-uur-nr">23:30</p>
-          <p class="lineup-uur-nr">23:45</p>
-
-        </div>
-<div class="lineup-plaats">
-  <p>Poton</p>
-  <p>Clun</p>
-  <p>Lake</p>
-  <p>Hangar</p>
-</div>
-
-</div>
-
-
-
-
-</div>
+        <!-- JS renders the grid inside these containers -->
+        <div class="lineup-main" id="lineup-zaterdag"></div>
+        <div class="lineup-main" id="lineup-zondag"   style="display:none;"></div>
       </section>
       <!-- map page -->
       <section class="screen" data-screen="map"><p>Hi (Map)</p></section>
@@ -394,20 +244,7 @@
 
 <script src="assets/js/script.js"></script>
 
-<script>function showLineupDay(day) {
-  const zaterdag = document.getElementById("lineup-zaterdag");
-  const zondag = document.getElementById("lineup-zondag");
 
-  if (!zaterdag || !zondag) return;
-
-  if (day === "zaterdag") {
-    zaterdag.style.display = "block";
-    zondag.style.display = "none";
-  } else if (day === "zondag") {
-    zondag.style.display = "block";
-    zaterdag.style.display = "none";
-  }
-}</script>
 
   </body>
 </html>

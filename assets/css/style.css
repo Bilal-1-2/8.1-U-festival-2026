@@ -126,6 +126,7 @@ main .screen {
 }
 
 main .screen[data-screen="home"] {
+  flex-direction: column;
   color: white;
   background: #ffffff;
   overflow-y: auto;
@@ -159,6 +160,7 @@ main .screen[data-screen="home"] {
 }
 
 main .screen[data-screen="info"] {
+  flex-direction: column;
   color: #111;
   background: #ffffff;
   overflow-y: auto;
