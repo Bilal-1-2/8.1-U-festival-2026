@@ -1,25 +1,18 @@
 [
-  {
-    "day": "zaterdag",
-    "acts": [
+    {
+      "day": "zaterdag",
+      "acts": [
+
       {
         "name": "Armin van Buuren",
         "tagline": "trance icon",
         "description": "Five-time “World’s No. 1 DJ” and trance icon, Armin delivers euphoric, high-energy sets that have headlined festivals from Tomorrowland to Ultra. His uplifting melodies and impeccable mixing keep crowds dancing for hours.",
-        "videoUrl": "11:45",
+        "videoUrl": "https://www.youtube.com/watch?v=TxvpctgU_s8",
         "begin-time": "10:30",
-        "end-time": "",
+        "end-time": "11:45",
         "stage": "poton"
       },
-      {
-        "name": "Martin Garrix",
-        "tagline": "EDM superstar",
-        "description": "Broke through as a teenager with “Animals,” Martin Garrix has become one of the biggest names in EDM. His anthemic big-room tracks and stadium-sized drops make him a festival favorite across Europe.",
-        "videoUrl": "https://www.youtube.com/watch?v=Zv1QV6lrc_Y",
-        "begin-time": "",
-        "end-time": " ",
-        "stage": ""
-      },
+
       {
         "name": "Kensington",
         "tagline": "indie rock anthems",
@@ -37,15 +30,6 @@
         "begin-time": "14:30",
         "end-time": " 16:15 ",
         "stage": "poton"
-      },
-      {
-        "name": "Chef’Special",
-        "tagline": "genre-blending funk-pop",
-        "description": "A four-piece from Haarlem mixing funk, pop, rock and hip-hop. Their upbeat, genre-fluid sound on songs like “Amigo” and “In Your Arms” makes for joyous, dance-floor-friendly live shows.",
-        "videoUrl": "https://www.youtube.com/watch?v=l3jRIr44lss",
-        "begin-time": "",
-        "end-time": "",
-        "stage": ""
       },
       {
         "name": "Navarone",
@@ -66,15 +50,6 @@
         "stage": "poton"
       },
       {
-        "name": "Eefje de Visser",
-        "tagline": "atmospheric indie-pop",
-        "description": "Indie-pop artist crafting atmospheric, electronic-tinged songs. Her hypnotic vocals and lush production (as heard on “Ongeveer”) create a dreamlike vibe perfect for twilight festival slots.",
-        "videoUrl": "https://www.youtube.com/watch?v=6IlLJNmLDMg",
-        "begin-time": "",
-        "end-time": "",
-        "stage": ""
-      },
-      {
         "name": "Froukje",
         "tagline": "candid pop songwriter",
         "description": "Breakthrough pop singer Froukje Veenstra combines candid lyrics with catchy, synth-driven hooks. Since her 2021 debut, she’s become a voice of her generation—ideal for mid-day festival stages.",
@@ -83,76 +58,14 @@
         "end-time": "23:45",
         "stage": "poton"
       },
-      {
-        "name": "Spinvis",
-        "tagline": "Poetic lo-fi surrealist in pop form",
-        "description": "Erik de Jong performs under the moniker Spinvis, crafting poetic, collage-like songs that blend spoken-word snippets, lo-fi electronics and wistful pop. Since his debut album in 2002—recorded in his attic—he’s become a fixture of Dutch indie, renowned for narratives that feel both intimate and surreal. His live shows turn everyday observations into shared, dreamlike experiences.",
-        "videoUrl": "https://www.youtube.com/watch?v=F3ZTrGWSLf4",
-        "begin-time": "",
-        "end-time": "",
-        "stage": ""
-      },
-      {
-        "name": "Armin van Buuren",
-        "tagline": "trance icon",
-        "description": "Five-time “World’s No. 1 DJ” and trance icon.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
-      {
-        "name": "Kensington",
-        "tagline": "indie rock anthems",
-        "description": "Rotterdam-born indie rock quintet.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
-      {
-        "name": "De Staat",
-        "tagline": "experimental rock innovators",
-        "description": "Experimental rock outfit from Nijmegen.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
-      {
-        "name": "Navarone",
-        "tagline": "hard-hitting rock four-piece",
-        "description": "Hard-hitting rock four-piece.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
-      {
-        "name": "Dotan",
-        "tagline": "folk-pop singer-songwriter",
-        "description": "Folk-pop singer-songwriter.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
-      {
-        "name": "Froukje",
-        "tagline": "candid pop songwriter",
-        "description": "Pop songwriter.",
-        "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
-        "stage": "poton"
-      },
+
       {
         "name": "Talent set 1",
         "tagline": "The Lake",
         "description": "Talent set 1.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "10:00",
+        "end-time": "11:30",
         "stage": "lake"
       },
       {
@@ -160,8 +73,8 @@
         "tagline": "The Lake",
         "description": "Talent set 2.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "11:30",
+        "end-time": "12:45",
         "stage": "lake"
       },
       {
@@ -169,8 +82,8 @@
         "tagline": "The Lake",
         "description": "Talent set 3.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:30",
+        "end-time": "14:45",
         "stage": "lake"
       },
       {
@@ -178,8 +91,8 @@
         "tagline": "The Lake",
         "description": "Talent set 4.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:30",
+        "end-time": "16:45",
         "stage": "lake"
       },
       {
@@ -187,8 +100,8 @@
         "tagline": "The Lake",
         "description": "Talent set 5.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "17:30",
+        "end-time": "18:15",
         "stage": "lake"
       },
       {
@@ -196,8 +109,8 @@
         "tagline": "The Lake",
         "description": "Talent set 6.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "19:15",
+        "end-time": "20:30",
         "stage": "lake"
       },
       {
@@ -205,8 +118,8 @@
         "tagline": "The Lake",
         "description": "Talent set 7.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "21:30",
+        "end-time": "22:45",
         "stage": "lake"
       },
       {
@@ -214,8 +127,8 @@
         "tagline": "The Club",
         "description": "Comedy.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "12:15",
+        "end-time": "12:45",
         "stage": "club"
       },
       {
@@ -223,8 +136,8 @@
         "tagline": "The Club",
         "description": "Lecture.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:30",
+        "end-time": "14:15",
         "stage": "club"
       },
       {
@@ -232,8 +145,8 @@
         "tagline": "The Club",
         "description": "Theater.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:15",
+        "end-time": "16:30",
         "stage": "club"
       },
       {
@@ -241,8 +154,8 @@
         "tagline": "The Club",
         "description": "Movie.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "17:30",
+        "end-time": "19:15",
         "stage": "club"
       },
       {
@@ -250,8 +163,8 @@
         "tagline": "The Club",
         "description": "Performance.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "20:15",
+        "end-time": "21:00",
         "stage": "club"
       },
       {
@@ -259,8 +172,8 @@
         "tagline": "The Club",
         "description": "Illusioinist.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "22:00",
+        "end-time": "22:45",
         "stage": "club"
       },
       {
@@ -268,8 +181,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 1.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "10:00",
+        "end-time": "10:45",
         "stage": "hangar"
       },
       {
@@ -277,8 +190,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 2.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "11:00",
+        "end-time": "12:15",
         "stage": "hangar"
       },
       {
@@ -286,8 +199,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 3.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "12:30",
+        "end-time": "13:45",
         "stage": "hangar"
       },
       {
@@ -295,8 +208,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 4.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "14:00",
+        "end-time": "15:15",
         "stage": "hangar"
       },
       {
@@ -304,8 +217,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 5.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:30",
+        "end-time": "17:15",
         "stage": "hangar"
       },
       {
@@ -313,8 +226,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 6.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "17:30",
+        "end-time": "19:15",
         "stage": "hangar"
       },
       {
@@ -322,8 +235,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 7.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "19:30",
+        "end-time": "21:15",
         "stage": "hangar"
       },
       {
@@ -331,8 +244,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 8.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "21:30",
+        "end-time": "23:45",
         "stage": "hangar"
       }
     ]
@@ -345,8 +258,8 @@
         "tagline": "Poton",
         "description": "Martin Garrix live at Poton stage.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "11:00",
+        "end-time": "12:45",
         "stage": "poton"
       },
       {
@@ -354,8 +267,8 @@
         "tagline": "Poton",
         "description": "Within Temptation live at Poton stage.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:45",
+        "end-time": "15:30",
         "stage": "poton"
       },
       {
@@ -363,8 +276,8 @@
         "tagline": "Poton",
         "description": "Chef’Special live at Poton stage.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "16:30",
+        "end-time": "18:15",
         "stage": "poton"
       },
       {
@@ -372,8 +285,8 @@
         "tagline": "Poton",
         "description": "Eefje de Visser live at Poton stage.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "19:15",
+        "end-time": "21:00",
         "stage": "poton"
       },
       {
@@ -381,8 +294,8 @@
         "tagline": "Poton",
         "description": "Spinvis live at Poton stage.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "22:00",
+        "end-time": "23:45",
         "stage": "poton"
       },
       {
@@ -390,8 +303,8 @@
         "tagline": "The Lake",
         "description": "Talent set 1.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "10:00",
+        "end-time": "10:45",
         "stage": "lake"
       },
       {
@@ -399,8 +312,8 @@
         "tagline": "The Lake",
         "description": "Talent set 2.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "11:30",
+        "end-time": "12:45",
         "stage": "lake"
       },
       {
@@ -408,8 +321,8 @@
         "tagline": "The Lake",
         "description": "Talent set 3.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:30",
+        "end-time": "14:45",
         "stage": "lake"
       },
       {
@@ -417,8 +330,8 @@
         "tagline": "The Lake",
         "description": "Talent set 4.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:30",
+        "end-time": "17:15",
         "stage": "lake"
       },
       {
@@ -426,8 +339,8 @@
         "tagline": "The Lake",
         "description": "Talent set 5.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "18:15",
+        "end-time": "19:30",
         "stage": "lake"
       },
       {
@@ -435,8 +348,8 @@
         "tagline": "The Lake",
         "description": "Talent set 6.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "20:30",
+        "end-time": "22:15",
         "stage": "lake"
       },
       {
@@ -444,8 +357,8 @@
         "tagline": "The Club",
         "description": "Comedy.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "12:00",
+        "end-time": "12:30",
         "stage": "club"
       },
       {
@@ -453,8 +366,8 @@
         "tagline": "The Club",
         "description": "Lecture.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:30",
+        "end-time": "14:45",
         "stage": "club"
       },
       {
@@ -462,8 +375,8 @@
         "tagline": "The Club",
         "description": "Theater.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:30",
+        "end-time": "16:15",
         "stage": "club"
       },
       {
@@ -471,8 +384,8 @@
         "tagline": "The Club",
         "description": "Movie.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "17:30",
+        "end-time": "19:15",
         "stage": "club"
       },
       {
@@ -480,8 +393,8 @@
         "tagline": "The Club",
         "description": "Magic Show.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "20:15",
+        "end-time": "21:30",
         "stage": "club"
       },
       {
@@ -489,8 +402,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 1.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "10:00",
+        "end-time": "10:15",
         "stage": "hangar"
       },
       {
@@ -498,8 +411,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 2.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "10:30",
+        "end-time": "12:15",
         "stage": "hangar"
       },
       {
@@ -507,8 +420,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 3.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "12:30",
+        "end-time": "13:15",
         "stage": "hangar"
       },
       {
@@ -516,8 +429,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 4.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "13:30",
+        "end-time": "15:15",
         "stage": "hangar"
       },
       {
@@ -525,8 +438,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 5.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "15:30",
+        "end-time": "16:45",
         "stage": "hangar"
       },
       {
@@ -534,8 +447,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 6.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "17:00",
+        "end-time": "18:15",
         "stage": "hangar"
       },
       {
@@ -543,8 +456,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 7.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "18:30",
+        "end-time": "20:45",
         "stage": "hangar"
       },
       {
@@ -552,8 +465,8 @@
         "tagline": "Hanggar",
         "description": "DJ set 8.",
         "videoUrl": "",
-        "begin-time": "",
-        "end-time": "",
+        "begin-time": "21:00",
+        "end-time": "23:45",
         "stage": "hangar"
       }
     ]
