@@ -75,12 +75,12 @@ const DAY_START_MIN = 10 * 60; // 10:00
 const DAY_END_MIN = 24 * 60; // 24:00 (last tick shown)
 const PX_PER_15MIN = 57.5;
 const PX_PER_MIN = PX_PER_15MIN / 15;
-const STAGE_ORDER = ["poton", "club", "lake", "hangar"];
+const STAGE_ORDER = ["poton", "club", "lake", "hanggar"];
 const STAGE_LABELS = {
   poton: "Poton",
   club: "Club",
   lake: "Lake",
-  hangar: "Hangar",
+  hanggar: "Hanggar",
 };
 const TOTAL_MINUTES = DAY_END_MIN - DAY_START_MIN; // 840 min
 const TOTAL_TICKS = TOTAL_MINUTES / 15; // 56 ticks
@@ -88,8 +88,7 @@ const STAGE_COLORS = {
   poton: "#e3b505", // yellow
   club: " #247ba0;", // blue
   lake: "#f03228", // red
-  hangar: "#50c878", // green
-
+  hanggar: "#50c878", // green
 };
 
 function parseMin(t) {
@@ -175,6 +174,7 @@ function renderActsForDay(dayKey, acts) {
       bar.style.background = STAGE_COLORS[stageKey] || "#247ba0";
       bar.style.width = `${widthPx}px`;
       if (act.description) bar.title = act.description;
+      bar.addEventListener("click", () => openActSheet(act));
 
       const name = document.createElement("span");
       name.className = "act-name";
@@ -182,7 +182,7 @@ function renderActsForDay(dayKey, acts) {
 
       const time = document.createElement("span");
       time.className = "act-time";
-      time.textContent = `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
+      // time.textContent = `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
 
       bar.appendChild(name);
       bar.appendChild(time);
@@ -194,6 +194,80 @@ function renderActsForDay(dayKey, acts) {
 
   table.appendChild(stagesCol);
   table.appendChild(scheduleCol);
+}
+
+// ── Act bottom sheet ───────────────────────────────────────────────────────
+const STAGE_NAMES = {
+  poton: "Poton",
+  club: "Club",
+  lake: "Lake",
+  hanggar: "Hanggar",
+};
+
+function getYouTubeEmbedUrl(url) {
+  if (!url) return null;
+  // Support youtube.com/watch?v=ID and youtu.be/ID
+  const m = url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return m ? `https://www.youtube.com/embed/${m[1]}?rel=0&autoplay=1` : null;
+}
+
+function openActSheet(act) {
+  const sheet = document.getElementById("actSheet");
+  const overlay = document.getElementById("actSheetOverlay");
+
+  // Set stage color accent
+  sheet.dataset.stage = act.stage || "";
+
+  // Fill text fields
+  document.getElementById("actSheetStage").textContent =
+    STAGE_NAMES[act.stage] || act.stage || "";
+  document.getElementById("actSheetName").textContent = act.name || "";
+  document.getElementById("actSheetTagline").textContent = act.tagline || "";
+  document.getElementById("actSheetDescription").textContent =
+    act.description || "";
+  document.getElementById("actSheetTime").textContent =
+    `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
+
+  // Video vs placeholder
+  const embedUrl = getYouTubeEmbedUrl(act.videoUrl);
+  const videoWrap = document.getElementById("actSheetVideoWrap");
+  const imgWrap = document.getElementById("actSheetImgWrap");
+  const iframe = document.getElementById("actSheetIframe");
+
+  if (embedUrl) {
+    iframe.src = embedUrl;
+    videoWrap.style.display = "block";
+    imgWrap.style.display = "none";
+  } else {
+    iframe.src = "";
+    videoWrap.style.display = "none";
+    imgWrap.style.display = "block";
+  }
+
+  // Slide up
+  overlay.style.display = "block";
+  requestAnimationFrame(() => {
+    overlay.classList.add("open");
+    sheet.classList.add("open");
+  });
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeActSheet() {
+  const sheet = document.getElementById("actSheet");
+  const overlay = document.getElementById("actSheetOverlay");
+
+  sheet.classList.remove("open");
+  overlay.classList.remove("open");
+
+  // Stop video
+  document.getElementById("actSheetIframe").src = "";
+
+  setTimeout(() => {
+    overlay.style.display = "none";
+    document.body.style.overflow = "";
+  }, 380);
 }
 
 async function loadAndRenderLineup() {

@@ -180,7 +180,7 @@
         "videoUrl": "",
         "begin-time": "10:00",
         "end-time": "11:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 2",
@@ -189,7 +189,7 @@
         "videoUrl": "",
         "begin-time": "11:00",
         "end-time": "12:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 3",
@@ -198,7 +198,7 @@
         "videoUrl": "",
         "begin-time": "12:30",
         "end-time": "14:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 4",
@@ -207,7 +207,7 @@
         "videoUrl": "",
         "begin-time": "14:00",
         "end-time": "15:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 5",
@@ -216,7 +216,7 @@
         "videoUrl": "",
         "begin-time": "15:30",
         "end-time": "17:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 6",
@@ -225,7 +225,7 @@
         "videoUrl": "",
         "begin-time": "17:30",
         "end-time": "19:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 7",
@@ -234,7 +234,7 @@
         "videoUrl": "",
         "begin-time": "19:30",
         "end-time": "21:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 8",
@@ -243,7 +243,7 @@
         "videoUrl": "",
         "begin-time": "21:30",
         "end-time": "24:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       }
     ]
   },
@@ -401,7 +401,7 @@
         "videoUrl": "",
         "begin-time": "10:00",
         "end-time": "10:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 2",
@@ -410,7 +410,7 @@
         "videoUrl": "",
         "begin-time": "10:30",
         "end-time": "12:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 3",
@@ -419,7 +419,7 @@
         "videoUrl": "",
         "begin-time": "12:30",
         "end-time": "13:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 4",
@@ -428,7 +428,7 @@
         "videoUrl": "",
         "begin-time": "13:30",
         "end-time": "15:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 5",
@@ -437,7 +437,7 @@
         "videoUrl": "",
         "begin-time": "15:30",
         "end-time": "17:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 6",
@@ -446,7 +446,7 @@
         "videoUrl": "",
         "begin-time": "17:00",
         "end-time": "18:30",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 7",
@@ -455,7 +455,7 @@
         "videoUrl": "",
         "begin-time": "18:30",
         "end-time": "21:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       },
       {
         "name": "DJ set 8",
@@ -464,7 +464,7 @@
         "videoUrl": "",
         "begin-time": "21:00",
         "end-time": "24:00",
-        "stage": "hangar"
+        "stage": "hanggar"
       }
     ]
   }

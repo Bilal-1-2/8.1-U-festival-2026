@@ -242,6 +242,48 @@
       </button>
     </footer>
 
+<!-- Act detail bottom sheet -->
+<div class="act-sheet-overlay" id="actSheetOverlay" onclick="closeActSheet()"></div>
+<div class="act-sheet" id="actSheet">
+  <div class="act-sheet-handle"></div>
+  <button class="act-sheet-close" onclick="closeActSheet()">✕</button>
+
+  <div class="act-sheet-inner">
+    <!-- Video embed (only if videoUrl present) -->
+    <div class="act-sheet-video-wrap" id="actSheetVideoWrap">
+      <iframe id="actSheetIframe" src="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- No-video placeholder image area -->
+    <div class="act-sheet-img-wrap" id="actSheetImgWrap">
+      <div class="act-sheet-img-placeholder" id="actSheetImgPlaceholder">
+        <span>🎵</span>
+      </div>
+    </div> 
+
+    <div class="act-sheet-body">
+      <p class="act-sheet-stage" id="actSheetStage"></p>
+      <h2 class="act-sheet-name" id="actSheetName"></h2>
+      <p class="act-sheet-tagline" id="actSheetTagline"></p>
+      <p class="act-sheet-time" id="actSheetTime"></p>
+
+      <div class="act-sheet-divider"></div>
+
+      <p class="act-sheet-section-title">Over de artiest</p>
+      <p class="act-sheet-description" id="actSheetDescription"></p>
+
+      <!-- Placeholder sections for later -->
+      <p class="act-sheet-section-title">Praktisch</p>
+      <p class="act-sheet-placeholder-text" id="actSheetPractical">Wordt later aangevuld.</p>
+
+      <p class="act-sheet-section-title">Meer info</p>
+      <p class="act-sheet-placeholder-text" id="actSheetMore">Wordt later aangevuld.</p>
+    </div>
+  </div>
+</div>
+
 <script src="assets/js/script.js"></script>
 
 
