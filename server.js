@@ -17,27 +17,27 @@ const io = socketIo(server, {
 const PORT = 8080;
 
 // Database connection local
-const pool = mysql
-  .createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "u_festival",
+// const pool = mysql
+//   .createPool({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "u_festival",
 
-  })
-  .promise();
+//   })
+//   .promise();
 
 
 
   // TO DOMAIN ↓↓↓
 
 // For PRODUCTION (your domain):
-// const pool = mysql.createPool({
-//   host: "localhost",  // Get this from your hosting
-//   user: "u240653_u_festival",            // Get this from your hosting
-//   password: "r9rZG7HtHR7tujh6PCxd",    // Get this from your hosting
-//   database: "u240653_u_festival",          // Your database name
-// }).promise();
+const pool = mysql.createPool({
+  host: "localhost",  // Get this from your hosting
+  user: "u240653_u_festival",            // Get this from your hosting
+  password: "r9rZG7HtHR7tujh6PCxd",    // Get this from your hosting
+  database: "u240653_u_festival",          // Your database name
+}).promise();
 
 app.use(cors());
 app.use(express.json());
