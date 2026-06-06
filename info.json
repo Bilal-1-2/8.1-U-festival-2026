@@ -5,246 +5,150 @@
       {
         "name": "Armin van Buuren",
         "tagline": "trance icon",
-        "description": "Five-time “World’s No. 1 DJ” and trance icon, Armin delivers euphoric, high-energy sets that have headlined festivals from Tomorrowland to Ultra. His uplifting melodies and impeccable mixing keep crowds dancing for hours.",
+        "tagline_en": "trance icon",
+        "description": "Vijfvoudig 'World's No. 1 DJ' en trance-icoon. Armin levert euforische, energieke sets die headlinen op Tomorrowland en Ultra. Zijn meeslepende melodieën en perfecte mixing houden crowds urenlang aan het dansen.",
+        "description_en": "Five-time World's No. 1 DJ and trance icon. Armin delivers euphoric, high-energy sets headlining Tomorrowland and Ultra. His uplifting melodies and impeccable mixing keep crowds dancing for hours.",
         "videoUrl": "https://www.youtube.com/watch?v=TxvpctgU_s8",
         "begin-time": "10:30",
         "end-time": "12:00",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Trance / Electronic",
+          "origin": "Leiden, Nederland",
+          "origin_en": "Leiden, Netherlands",
+          "socials": {
+            "instagram": "arminvanbuuren",
+            "spotify": "6TH5p4KBMnMqAQ73B2msVT"
+          }
+        }
       },
       {
         "name": "Kensington",
         "tagline": "indie rock anthems",
-        "description": "Rotterdam-born indie rock quintet known for soaring choruses and driving guitar riffs. Hits like “Streets” and “Riddles” showcase their knack for arena-ready hooks and emotionally charged lyricism.",
+        "tagline_en": "indie rock anthems",
+        "description": "Rotterdamse indie-rockband bekend om meeslepende refreinen en krachtige gitaarriffs. Hits als 'Streets' en 'Riddles' laten hun talent zien voor arena-waardige hooks.",
+        "description_en": "Rotterdam-born indie rock quintet known for soaring choruses and driving guitar riffs. Hits like 'Streets' and 'Riddles' showcase their knack for arena-ready hooks.",
         "videoUrl": "https://www.youtube.com/watch?v=IH77eOyV95o",
         "begin-time": "12:30",
         "end-time": "14:00",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Indie Rock",
+          "origin": "Rotterdam, Nederland",
+          "origin_en": "Rotterdam, Netherlands",
+          "socials": {
+            "instagram": "kensingtonband",
+            "spotify": "3VHgLdCLgVKBHLnMXRfcRF"
+          }
+        }
       },
       {
         "name": "De Staat",
-        "tagline": "experimental rock innovators",
-        "description": "Experimental rock outfit from Nijmegen, blending funky grooves with angular guitar work and theatrical stagecraft. Tracks like “Witch Doctor” and “Down Town” highlight their genre-bending approach and infectious energy.",
+        "tagline": "experimentele rock innovators",
+        "tagline_en": "experimental rock innovators",
+        "description": "Experimentele rockband uit Nijmegen met funky grooves, hoekig gitaarwerk en theatrale energie. Tracks als 'Witch Doctor' laten hun genre-overstijgende aanpak zien.",
+        "description_en": "Experimental rock outfit from Nijmegen, blending funky grooves with angular guitar work and theatrical stagecraft. Tracks like 'Witch Doctor' highlight their genre-bending approach.",
         "videoUrl": "https://www.youtube.com/watch?v=0ttGgIQpAUc",
         "begin-time": "14:30",
         "end-time": "16:30",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Experimentele Rock",
+          "origin": "Nijmegen, Nederland",
+          "origin_en": "Nijmegen, Netherlands",
+          "socials": {
+            "instagram": "de_staat",
+            "spotify": "3roMQD9hD4RoFSR2YMbw2j"
+          }
+        }
       },
       {
         "name": "Navarone",
-        "tagline": "hard-hitting rock four-piece",
-        "description": "Utrecht’s hard-hitting rock four-piece, delivering riff-driven anthems and dynamic vocals. With a live reputation for raw intensity, they’re tailor-made for late-night main stages.",
+        "tagline": "harde Utrechtse rockband",
+        "tagline_en": "hard-hitting rock four-piece",
+        "description": "Utrechtse rockband met riff-gedreven anthems en dynamische vocalen. Bekend om hun rauwe intensiteit op het podium.",
+        "description_en": "Utrecht's hard-hitting rock four-piece delivering riff-driven anthems and dynamic vocals, tailor-made for late-night main stages.",
         "videoUrl": "https://www.youtube.com/watch?v=EvLpaCSnc4k",
         "begin-time": "17:00",
         "end-time": "18:30",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Rock",
+          "origin": "Utrecht, Nederland",
+          "origin_en": "Utrecht, Netherlands",
+          "socials": {
+            "instagram": "navaronerocks",
+            "spotify": "2cBhsPJTSFkxqiXYHFuGSV"
+          }
+        }
       },
       {
         "name": "Dotan",
         "tagline": "folk-pop singer-songwriter",
-        "description": "Folk-pop singer-songwriter whose intimate voice and acoustic arrangements (notably on “Home”) have earned him platinum sales and sell-out shows. His heartfelt storytelling connects deeply on festival acoustic stages.",
+        "tagline_en": "folk-pop singer-songwriter",
+        "description": "Singer-songwriter wiens intieme stem en akoestische arrangementen hem platina verkopen en uitverkochte shows opleverden. Zijn oprechte verhalen raken diep.",
+        "description_en": "Folk-pop singer-songwriter whose intimate voice and acoustic arrangements have earned platinum sales and sell-out shows. His heartfelt storytelling connects deeply.",
         "videoUrl": "https://www.youtube.com/watch?v=FZEuqzW16Nw",
         "begin-time": "19:15",
         "end-time": "21:15",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Folk-pop",
+          "origin": "Amsterdam, Nederland",
+          "origin_en": "Amsterdam, Netherlands",
+          "socials": {
+            "instagram": "dotanmusic",
+            "spotify": "06HL4z0CvFAxyc27GXpf02"
+          }
+        }
       },
       {
         "name": "Froukje",
-        "tagline": "candid pop songwriter",
-        "description": "Breakthrough pop singer Froukje Veenstra combines candid lyrics with catchy, synth-driven hooks. Since her 2021 debut, she’s become a voice of her generation—ideal for mid-day festival stages.",
+        "tagline": "openhartige pop songwriter",
+        "tagline_en": "candid pop songwriter",
+        "description": "Doorbraak popsongwriter die openhartige teksten combineert met catchy synth-gedreven hooks. Sinds haar debuut in 2021 is ze de stem van haar generatie.",
+        "description_en": "Breakthrough pop singer combining candid lyrics with catchy synth-driven hooks. Since her 2021 debut she has become a defining voice of her generation.",
         "videoUrl": "https://www.youtube.com/watch?v=g4PlReX9e-E",
         "begin-time": "22:00",
         "end-time": "24:00",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": {
+          "photo": "",
+          "genre": "Pop",
+          "origin": "Groningen, Nederland",
+          "origin_en": "Groningen, Netherlands",
+          "socials": {
+            "instagram": "froukjemusic",
+            "spotify": "4ULO7IGI3M2f5PZxBxWMmo"
+          }
+        }
       },
-      {
-        "name": "Talent set 1",
-        "tagline": "The Lake",
-        "description": "Talent set 1.",
-        "videoUrl": "",
-        "begin-time": "10:00",
-        "end-time": "11:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 2",
-        "tagline": "The Lake",
-        "description": "Talent set 2.",
-        "videoUrl": "",
-        "begin-time": "11:30",
-        "end-time": "13:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 3",
-        "tagline": "The Lake",
-        "description": "Talent set 3.",
-        "videoUrl": "",
-        "begin-time": "13:30",
-        "end-time": "15:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 4",
-        "tagline": "The Lake",
-        "description": "Talent set 4.",
-        "videoUrl": "",
-        "begin-time": "15:30",
-        "end-time": "17:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 5",
-        "tagline": "The Lake",
-        "description": "Talent set 5.",
-        "videoUrl": "",
-        "begin-time": "17:30",
-        "end-time": "18:30",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 6",
-        "tagline": "The Lake",
-        "description": "Talent set 6.",
-        "videoUrl": "",
-        "begin-time": "19:15",
-        "end-time": "20:45",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 7",
-        "tagline": "The Lake",
-        "description": "Talent set 7.",
-        "videoUrl": "",
-        "begin-time": "21:30",
-        "end-time": "23:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Comedy",
-        "tagline": "The Club",
-        "description": "Comedy.",
-        "videoUrl": "",
-        "begin-time": "12:15",
-        "end-time": "13:00",
-        "stage": "club"
-      },
-      {
-        "name": "Lecture",
-        "tagline": "The Club",
-        "description": "Lecture.",
-        "videoUrl": "",
-        "begin-time": "13:30",
-        "end-time": "14:30",
-        "stage": "club"
-      },
-      {
-        "name": "Theater",
-        "tagline": "The Club",
-        "description": "Theater.",
-        "videoUrl": "",
-        "begin-time": "15:15",
-        "end-time": "16:45",
-        "stage": "club"
-      },
-      {
-        "name": "Movie",
-        "tagline": "The Club",
-        "description": "Movie.",
-        "videoUrl": "",
-        "begin-time": "17:30",
-        "end-time": "19:30",
-        "stage": "club"
-      },
-      {
-        "name": "Performance",
-        "tagline": "The Club",
-        "description": "Performance.",
-        "videoUrl": "",
-        "begin-time": "20:15",
-        "end-time": "21:15",
-        "stage": "club"
-      },
-      {
-        "name": "Illusioinist",
-        "tagline": "The Club",
-        "description": "Illusioinist.",
-        "videoUrl": "",
-        "begin-time": "22:00",
-        "end-time": "23:00",
-        "stage": "club"
-      },
-      {
-        "name": "DJ set 1",
-        "tagline": "Hanggar",
-        "description": "DJ set 1.",
-        "videoUrl": "",
-        "begin-time": "10:00",
-        "end-time": "11:00",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 2",
-        "tagline": "Hanggar",
-        "description": "DJ set 2.",
-        "videoUrl": "",
-        "begin-time": "11:00",
-        "end-time": "12:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 3",
-        "tagline": "Hanggar",
-        "description": "DJ set 3.",
-        "videoUrl": "",
-        "begin-time": "12:30",
-        "end-time": "14:00",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 4",
-        "tagline": "Hanggar",
-        "description": "DJ set 4.",
-        "videoUrl": "",
-        "begin-time": "14:00",
-        "end-time": "15:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 5",
-        "tagline": "Hanggar",
-        "description": "DJ set 5.",
-        "videoUrl": "",
-        "begin-time": "15:30",
-        "end-time": "17:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 6",
-        "tagline": "Hanggar",
-        "description": "DJ set 6.",
-        "videoUrl": "",
-        "begin-time": "17:30",
-        "end-time": "19:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 7",
-        "tagline": "Hanggar",
-        "description": "DJ set 7.",
-        "videoUrl": "",
-        "begin-time": "19:30",
-        "end-time": "21:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 8",
-        "tagline": "Hanggar",
-        "description": "DJ set 8.",
-        "videoUrl": "",
-        "begin-time": "21:30",
-        "end-time": "24:00",
-        "stage": "hanggar"
-      }
+      { "name": "Talent set 1", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 1.", "description_en": "Talent set 1.", "videoUrl": "", "begin-time": "10:00", "end-time": "11:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 2", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 2.", "description_en": "Talent set 2.", "videoUrl": "", "begin-time": "11:30", "end-time": "13:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 3", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 3.", "description_en": "Talent set 3.", "videoUrl": "", "begin-time": "13:30", "end-time": "15:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 4", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 4.", "description_en": "Talent set 4.", "videoUrl": "", "begin-time": "15:30", "end-time": "17:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 5", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 5.", "description_en": "Talent set 5.", "videoUrl": "", "begin-time": "17:30", "end-time": "18:30", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 6", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 6.", "description_en": "Talent set 6.", "videoUrl": "", "begin-time": "19:15", "end-time": "20:45", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 7", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 7.", "description_en": "Talent set 7.", "videoUrl": "", "begin-time": "21:30", "end-time": "23:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Comedy", "tagline": "The Club", "tagline_en": "The Club", "description": "Comedy show.", "description_en": "Comedy show.", "videoUrl": "", "begin-time": "12:15", "end-time": "13:00", "stage": "club", "artist": { "photo": "", "genre": "Comedy", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Lecture", "tagline": "The Club", "tagline_en": "The Club", "description": "Lezing.", "description_en": "Lecture.", "videoUrl": "", "begin-time": "13:30", "end-time": "14:30", "stage": "club", "artist": { "photo": "", "genre": "Lezing", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Theater", "tagline": "The Club", "tagline_en": "The Club", "description": "Theater voorstelling.", "description_en": "Theater performance.", "videoUrl": "", "begin-time": "15:15", "end-time": "16:45", "stage": "club", "artist": { "photo": "", "genre": "Theater", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Movie", "tagline": "The Club", "tagline_en": "The Club", "description": "Filmvertoning.", "description_en": "Movie screening.", "videoUrl": "", "begin-time": "17:30", "end-time": "19:30", "stage": "club", "artist": { "photo": "", "genre": "Film", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Performance", "tagline": "The Club", "tagline_en": "The Club", "description": "Live performance.", "description_en": "Live performance.", "videoUrl": "", "begin-time": "20:15", "end-time": "21:15", "stage": "club", "artist": { "photo": "", "genre": "Performance", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Illusionist", "tagline": "The Club", "tagline_en": "The Club", "description": "Illusionist show.", "description_en": "Illusionist show.", "videoUrl": "", "begin-time": "22:00", "end-time": "23:00", "stage": "club", "artist": { "photo": "", "genre": "Illusie", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 1", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 1.", "description_en": "DJ set 1.", "videoUrl": "", "begin-time": "10:00", "end-time": "11:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 2", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 2.", "description_en": "DJ set 2.", "videoUrl": "", "begin-time": "11:00", "end-time": "12:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 3", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 3.", "description_en": "DJ set 3.", "videoUrl": "", "begin-time": "12:30", "end-time": "14:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 4", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 4.", "description_en": "DJ set 4.", "videoUrl": "", "begin-time": "14:00", "end-time": "15:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 5", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 5.", "description_en": "DJ set 5.", "videoUrl": "", "begin-time": "15:30", "end-time": "17:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 6", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 6.", "description_en": "DJ set 6.", "videoUrl": "", "begin-time": "17:30", "end-time": "19:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 7", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 7.", "description_en": "DJ set 7.", "videoUrl": "", "begin-time": "19:30", "end-time": "21:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 8", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 8.", "description_en": "DJ set 8.", "videoUrl": "", "begin-time": "21:30", "end-time": "24:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } }
     ]
   },
   {
@@ -252,221 +156,83 @@
     "acts": [
       {
         "name": "Martin Garrix",
-        "tagline": "Poton",
-        "description": "Martin Garrix live at Poton stage.",
+        "tagline": "elektronisch fenomeen",
+        "tagline_en": "electronic phenomenon",
+        "description": "Martin Garrix is een van de meest invloedrijke DJ's ter wereld. Met hits als 'Animals' veroverde hij de wereld.",
+        "description_en": "Martin Garrix is one of the most influential DJs in the world, with hits like 'Animals' conquering global charts.",
         "videoUrl": "",
         "begin-time": "11:00",
         "end-time": "13:00",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": { "photo": "", "genre": "Electronic / Dance", "origin": "Amstelveen, Nederland", "origin_en": "Amstelveen, Netherlands", "socials": { "instagram": "martingarrix", "spotify": "60d24wfXkVzDSfLS6hyCjZ" } }
       },
       {
         "name": "Within Temptation",
-        "tagline": "Poton",
-        "description": "Within Temptation live at Poton stage.",
+        "tagline": "symfonische metal",
+        "tagline_en": "symphonic metal",
+        "description": "Nederlandse symfonische metalband met epische orkestrale klanken en de krachtige stem van Sharon den Adel.",
+        "description_en": "Dutch symphonic metal band with epic orchestral soundscapes and the powerful vocals of Sharon den Adel.",
         "videoUrl": "",
         "begin-time": "13:45",
         "end-time": "15:45",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": { "photo": "", "genre": "Symfonische Metal", "origin": "Waddinxveen, Nederland", "origin_en": "Waddinxveen, Netherlands", "socials": { "instagram": "withintemptation", "spotify": "31mAUgNkXWoxTBGWLEJVDl" } }
       },
       {
-        "name": "Chef’Special",
-        "tagline": "Poton",
-        "description": "Chef’Special live at Poton stage.",
+        "name": "Chef'Special",
+        "tagline": "indie pop met soul",
+        "tagline_en": "indie pop with soul",
+        "description": "Chef'Special mengt indie, pop, reggae en soul tot een uniek en energiek geluid dat iedereen op de been krijgt.",
+        "description_en": "Chef'Special blends indie, pop, reggae and soul into a unique energetic sound that gets everyone on their feet.",
         "videoUrl": "",
         "begin-time": "16:30",
         "end-time": "18:30",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": { "photo": "", "genre": "Indie / Pop / Soul", "origin": "Haarlem, Nederland", "origin_en": "Haarlem, Netherlands", "socials": { "instagram": "chefspecial", "spotify": "2vGfC2xFq57dMCFGMoh0QI" } }
       },
       {
         "name": "Eefje de Visser",
-        "tagline": "Poton",
-        "description": "Eefje de Visser live at Poton stage.",
+        "tagline": "elektropoppoëzie",
+        "tagline_en": "electropop poetry",
+        "description": "Eefje de Visser maakt dromerige elektropopmuziek met poëtische Nederlandse teksten en hypnotiserende melodieën.",
+        "description_en": "Eefje de Visser crafts dreamy electropop with poetic Dutch lyrics and hypnotic melodies.",
         "videoUrl": "",
         "begin-time": "19:15",
         "end-time": "21:15",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": { "photo": "", "genre": "Electropop", "origin": "Nijmegen, Nederland", "origin_en": "Nijmegen, Netherlands", "socials": { "instagram": "eefjedevisser", "spotify": "6bmlMHgSheBauioMCVBgBn" } }
       },
       {
         "name": "Spinvis",
-        "tagline": "Poton",
-        "description": "Spinvis live at Poton stage.",
+        "tagline": "Nederlandse indie pop legende",
+        "tagline_en": "Dutch indie pop legend",
+        "description": "Spinvis maakt unieke Nederlandstalige indie pop met rijke teksten en een cinematisch geluid.",
+        "description_en": "Spinvis creates unique Dutch-language indie pop with rich lyrics and a cinematic sound.",
         "videoUrl": "",
         "begin-time": "22:00",
         "end-time": "24:00",
-        "stage": "poton"
+        "stage": "poton",
+        "artist": { "photo": "", "genre": "Indie Pop", "origin": "Utrecht, Nederland", "origin_en": "Utrecht, Netherlands", "socials": { "instagram": "spinvismusic", "spotify": "6ozfHfTSJZTxjpDnJX7EqN" } }
       },
-      {
-        "name": "Talent set 1",
-        "tagline": "The Lake",
-        "description": "Talent set 1.",
-        "videoUrl": "",
-        "begin-time": "10:00",
-        "end-time": "11:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 2",
-        "tagline": "The Lake",
-        "description": "Talent set 2.",
-        "videoUrl": "",
-        "begin-time": "11:30",
-        "end-time": "13:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 3",
-        "tagline": "The Lake",
-        "description": "Talent set 3.",
-        "videoUrl": "",
-        "begin-time": "13:30",
-        "end-time": "15:00",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 4",
-        "tagline": "The Lake",
-        "description": "Talent set 4.",
-        "videoUrl": "",
-        "begin-time": "15:30",
-        "end-time": "17:30",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 5",
-        "tagline": "The Lake",
-        "description": "Talent set 5.",
-        "videoUrl": "",
-        "begin-time": "18:15",
-        "end-time": "19:45",
-        "stage": "lake"
-      },
-      {
-        "name": "Talent set 6",
-        "tagline": "The Lake",
-        "description": "Talent set 6.",
-        "videoUrl": "",
-        "begin-time": "20:30",
-        "end-time": "22:30",
-        "stage": "lake"
-      },
-      {
-        "name": "Comedy",
-        "tagline": "The Club",
-        "description": "Comedy.",
-        "videoUrl": "",
-        "begin-time": "12:00",
-        "end-time": "12:45",
-        "stage": "club"
-      },
-      {
-        "name": "Lecture",
-        "tagline": "The Club",
-        "description": "Lecture.",
-        "videoUrl": "",
-        "begin-time": "13:30",
-        "end-time": "14:30",
-        "stage": "club"
-      },
-      {
-        "name": "Theater",
-        "tagline": "The Club",
-        "description": "Theater.",
-        "videoUrl": "",
-        "begin-time": "15:30",
-        "end-time": "16:30",
-        "stage": "club"
-      },
-      {
-        "name": "Movie",
-        "tagline": "The Club",
-        "description": "Movie.",
-        "videoUrl": "",
-        "begin-time": "17:30",
-        "end-time": "19:30",
-        "stage": "club"
-      },
-      {
-        "name": "Magic Show",
-        "tagline": "The Club",
-        "description": "Magic Show.",
-        "videoUrl": "",
-        "begin-time": "20:15",
-        "end-time": "21:45",
-        "stage": "club"
-      },
-      {
-        "name": "DJ set 1",
-        "tagline": "Hanggar",
-        "description": "DJ set 1.",
-        "videoUrl": "",
-        "begin-time": "10:00",
-        "end-time": "10:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 2",
-        "tagline": "Hanggar",
-        "description": "DJ set 2.",
-        "videoUrl": "",
-        "begin-time": "10:30",
-        "end-time": "12:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 3",
-        "tagline": "Hanggar",
-        "description": "DJ set 3.",
-        "videoUrl": "",
-        "begin-time": "12:30",
-        "end-time": "13:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 4",
-        "tagline": "Hanggar",
-        "description": "DJ set 4.",
-        "videoUrl": "",
-        "begin-time": "13:30",
-        "end-time": "15:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 5",
-        "tagline": "Hanggar",
-        "description": "DJ set 5.",
-        "videoUrl": "",
-        "begin-time": "15:30",
-        "end-time": "17:00",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 6",
-        "tagline": "Hanggar",
-        "description": "DJ set 6.",
-        "videoUrl": "",
-        "begin-time": "17:00",
-        "end-time": "18:30",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 7",
-        "tagline": "Hanggar",
-        "description": "DJ set 7.",
-        "videoUrl": "",
-        "begin-time": "18:30",
-        "end-time": "21:00",
-        "stage": "hanggar"
-      },
-      {
-        "name": "DJ set 8",
-        "tagline": "Hanggar",
-        "description": "DJ set 8.",
-        "videoUrl": "",
-        "begin-time": "21:00",
-        "end-time": "24:00",
-        "stage": "hanggar"
-      }
+      { "name": "Talent set 1", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 1.", "description_en": "Talent set 1.", "videoUrl": "", "begin-time": "10:00", "end-time": "11:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 2", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 2.", "description_en": "Talent set 2.", "videoUrl": "", "begin-time": "11:30", "end-time": "13:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 3", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 3.", "description_en": "Talent set 3.", "videoUrl": "", "begin-time": "13:30", "end-time": "15:00", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 4", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 4.", "description_en": "Talent set 4.", "videoUrl": "", "begin-time": "15:30", "end-time": "17:30", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 5", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 5.", "description_en": "Talent set 5.", "videoUrl": "", "begin-time": "18:15", "end-time": "19:45", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Talent set 6", "tagline": "The Lake", "tagline_en": "The Lake", "description": "Talent set 6.", "description_en": "Talent set 6.", "videoUrl": "", "begin-time": "20:30", "end-time": "22:30", "stage": "lake", "artist": { "photo": "", "genre": "", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Comedy", "tagline": "The Club", "tagline_en": "The Club", "description": "Comedy show.", "description_en": "Comedy show.", "videoUrl": "", "begin-time": "12:00", "end-time": "12:45", "stage": "club", "artist": { "photo": "", "genre": "Comedy", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Lecture", "tagline": "The Club", "tagline_en": "The Club", "description": "Lezing.", "description_en": "Lecture.", "videoUrl": "", "begin-time": "13:30", "end-time": "14:30", "stage": "club", "artist": { "photo": "", "genre": "Lezing", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Theater", "tagline": "The Club", "tagline_en": "The Club", "description": "Theater voorstelling.", "description_en": "Theater performance.", "videoUrl": "", "begin-time": "15:30", "end-time": "16:30", "stage": "club", "artist": { "photo": "", "genre": "Theater", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Movie", "tagline": "The Club", "tagline_en": "The Club", "description": "Filmvertoning.", "description_en": "Movie screening.", "videoUrl": "", "begin-time": "17:30", "end-time": "19:30", "stage": "club", "artist": { "photo": "", "genre": "Film", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "Magic Show", "tagline": "The Club", "tagline_en": "The Club", "description": "Goochelshow.", "description_en": "Magic show.", "videoUrl": "", "begin-time": "20:15", "end-time": "21:45", "stage": "club", "artist": { "photo": "", "genre": "Magie", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 1", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 1.", "description_en": "DJ set 1.", "videoUrl": "", "begin-time": "10:00", "end-time": "10:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 2", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 2.", "description_en": "DJ set 2.", "videoUrl": "", "begin-time": "10:30", "end-time": "12:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 3", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 3.", "description_en": "DJ set 3.", "videoUrl": "", "begin-time": "12:30", "end-time": "13:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 4", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 4.", "description_en": "DJ set 4.", "videoUrl": "", "begin-time": "13:30", "end-time": "15:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 5", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 5.", "description_en": "DJ set 5.", "videoUrl": "", "begin-time": "15:30", "end-time": "17:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 6", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 6.", "description_en": "DJ set 6.", "videoUrl": "", "begin-time": "17:00", "end-time": "18:30", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 7", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 7.", "description_en": "DJ set 7.", "videoUrl": "", "begin-time": "18:30", "end-time": "21:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } },
+      { "name": "DJ set 8", "tagline": "Hanggar", "tagline_en": "Hanggar", "description": "DJ set 8.", "description_en": "DJ set 8.", "videoUrl": "", "begin-time": "21:00", "end-time": "24:00", "stage": "hanggar", "artist": { "photo": "", "genre": "DJ", "origin": "", "origin_en": "", "socials": {} } }
     ]
   }
 ]
-

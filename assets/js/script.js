@@ -1,298 +1,406 @@
-// ── Footer navigation ──────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+let currentLang  = localStorage.getItem("ufest-lang")  || "nl";
+let currentTheme = localStorage.getItem("ufest-theme") || "light";
+let favorites    = JSON.parse(localStorage.getItem("ufest-favs") || "[]");
+let currentAct   = null;
+let allActsByDay = {}; // { zaterdag: [...], zondag: [...] }
+
+// ═══════════════════════════════════════════════
+//  THEME
+// ═══════════════════════════════════════════════
+function applyTheme(t) {
+  currentTheme = t;
+  document.documentElement.setAttribute("data-theme", t);
+  document.getElementById("themeIcon").textContent = t === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("ufest-theme", t);
+}
+function toggleTheme() { applyTheme(currentTheme === "dark" ? "light" : "dark"); }
+
+// ═══════════════════════════════════════════════
+//  LANGUAGE
+// ═══════════════════════════════════════════════
+function applyLang(lang) {
+  currentLang = lang;
+  document.documentElement.setAttribute("data-lang", lang);
+  document.getElementById("langLabel").textContent = lang === "nl" ? "EN" : "NL";
+  localStorage.setItem("ufest-lang", lang);
+  // Swap all [data-nl][data-en] text nodes
+  document.querySelectorAll("[data-nl]").forEach(el => {
+    el.innerHTML = lang === "nl" ? el.dataset.nl : (el.dataset.en || el.dataset.nl);
+  });
+}
+function toggleLang() { applyLang(currentLang === "nl" ? "en" : "nl"); }
+
+// ═══════════════════════════════════════════════
+//  FAVORITES
+// ═══════════════════════════════════════════════
+function favKey(act) { return `${act.stage}|${act.name}|${act["begin-time"]}`; }
+function isFav(act)  { return favorites.includes(favKey(act)); }
+function saveFavs()  { localStorage.setItem("ufest-favs", JSON.stringify(favorites)); }
+
+function toggleFav(act) {
+  const k = favKey(act);
+  favorites = isFav(act) ? favorites.filter(x => x !== k) : [...favorites, k];
+  saveFavs();
+  refreshFavUI();
+}
+function toggleFavFromSheet() {
+  if (currentAct) toggleFav(currentAct);
+}
+
+function refreshFavUI() {
+  // update heart in open sheet
+  const btn = document.getElementById("actFavBtn");
+  if (btn && currentAct) {
+    const fav = isFav(currentAct);
+    btn.textContent = fav ? "♥" : "♡";
+    btn.classList.toggle("is-fav", fav);
+  }
+  // update all act bars
+  document.querySelectorAll(".lineup-act-bar[data-favkey]").forEach(bar => {
+    const star = bar.querySelector(".bar-fav");
+    if (star) star.textContent = favorites.includes(bar.dataset.favkey) ? "♥" : "";
+  });
+  // update footer heart badge
+  const footerHeart = document.querySelector(".fav-footer-icon");
+  if (footerHeart) footerHeart.textContent = favorites.length > 0 ? "♥" : "♡";
+}
+
+function openFavScreen() {
+  const overlay = document.getElementById("favOverlay");
+  const screen  = document.getElementById("favScreen");
+  const list    = document.getElementById("favList");
+  list.innerHTML = "";
+
+  const favActs = [];
+  Object.entries(allActsByDay).forEach(([day, acts]) => {
+    acts.forEach(act => { if (isFav(act)) favActs.push({ act, day }); });
+  });
+
+  if (favActs.length === 0) {
+    list.innerHTML = `<p class="fav-empty">${currentLang === "nl" ? "Nog geen favorieten toegevoegd." : "No favourites added yet."}</p>`;
+  } else {
+    favActs.forEach(({ act, day }) => {
+      const dayLabel = day === "zaterdag"
+        ? (currentLang === "nl" ? "Zaterdag" : "Saturday")
+        : (currentLang === "nl" ? "Zondag"   : "Sunday");
+      const item = document.createElement("div");
+      item.className = "fav-item";
+      item.innerHTML = `
+        <div class="fav-item-left" onclick='openActSheet(${JSON.stringify(act).replace(/'/g,"&#39;")})'>
+          <span class="fav-stage-dot stage-${act.stage}"></span>
+          <div class="fav-item-info">
+            <strong>${act.name}</strong>
+            <span class="fav-item-sub">${STAGE_LABELS[act.stage] || act.stage} · ${dayLabel} ${act["begin-time"]}–${act["end-time"]}</span>
+          </div>
+        </div>
+        <button class="fav-item-remove" onclick="removeFav('${favKey(act).replace(/'/g,"\\'")}', this)">✕</button>`;
+      list.appendChild(item);
+    });
+  }
+
+  overlay.style.display = "block";
+  requestAnimationFrame(() => { overlay.classList.add("open"); screen.classList.add("open"); });
+}
+
+function closeFavScreen() {
+  const overlay = document.getElementById("favOverlay");
+  const screen  = document.getElementById("favScreen");
+  overlay.classList.remove("open");
+  screen.classList.remove("open");
+  setTimeout(() => { overlay.style.display = "none"; }, 320);
+}
+
+function removeFav(key, btn) {
+  favorites = favorites.filter(k => k !== key);
+  saveFavs();
+  refreshFavUI();
+  const item = btn.closest(".fav-item");
+  item.remove();
+  const list = document.getElementById("favList");
+  if (!list.querySelector(".fav-item"))
+    list.innerHTML = `<p class="fav-empty">${currentLang === "nl" ? "Nog geen favorieten toegevoegd." : "No favourites added yet."}</p>`;
+}
+
+// ═══════════════════════════════════════════════
+//  QR CODE
+// ═══════════════════════════════════════════════
+let qrBuilt = false;
+function openQR() {
+  const overlay = document.getElementById("qrOverlay");
+  const sheet   = document.getElementById("qrSheet");
+  overlay.style.display = "block";
+  requestAnimationFrame(() => { overlay.classList.add("open"); sheet.classList.add("open"); });
+
+  if (!qrBuilt) {
+    const url = window.location.href;
+    document.getElementById("qrUrlLabel").textContent = url;
+    new QRCode(document.getElementById("qrCanvas"), {
+      text: url, width: 200, height: 200,
+      colorDark: currentTheme === "dark" ? "#ffffff" : "#111111",
+      colorLight: "rgba(0,0,0,0)",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    qrBuilt = true;
+  }
+}
+function closeQR() {
+  document.getElementById("qrSheet").classList.remove("open");
+  document.getElementById("qrOverlay").classList.remove("open");
+  setTimeout(() => { document.getElementById("qrOverlay").style.display = "none"; }, 380);
+}
+
+// ═══════════════════════════════════════════════
+//  FOOTER NAV
+// ═══════════════════════════════════════════════
 document.addEventListener("DOMContentLoaded", () => {
-  const footerButtons = document.querySelectorAll("footer .footer-btns");
-  const screens = document.querySelectorAll("main .screen[data-screen]");
+  const footerBtns = document.querySelectorAll("footer .footer-btns");
+  const screens    = document.querySelectorAll("main .screen[data-screen]");
 
-  if (!footerButtons.length || !screens.length) return;
+  const hideAll   = () => screens.forEach(s => s.style.display = "none");
+  const showScr   = id => { const el = document.querySelector(`main .screen[data-screen="${id}"]`); if (el) el.style.display = "flex"; };
+  const setActive = btn => { footerBtns.forEach(b => b.classList.remove("active")); if (btn) btn.classList.add("active"); };
 
-  const hideAllScreens = () =>
-    screens.forEach((s) => (s.style.display = "none"));
-
-  const showScreen = (id) => {
-    const el = document.querySelector(`main .screen[data-screen="${id}"]`);
-    if (el) el.style.display = "flex";
-  };
-
-  const setActive = (activeBtn) => {
-    footerButtons.forEach((btn) => btn.classList.remove("active"));
-    if (activeBtn) activeBtn.classList.add("active");
-  };
-
-  const activateFromButton = (btn) => {
+  const activate = btn => {
     if (!btn) return;
-    const target =
-      btn.getAttribute("data-target") ||
+    const target = btn.getAttribute("data-target") ||
       btn.querySelector("[data-target]")?.getAttribute("data-target");
     if (!target) return;
     setActive(btn);
-    hideAllScreens();
-    showScreen(target);
+    hideAll();
+    showScr(target);
   };
 
-  footerButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      activateFromButton(btn);
-    });
+  footerBtns.forEach(btn => {
+    // skip the fav button (it has no data-target)
+    if (btn.id === "favBtn") return;
+    btn.addEventListener("click", e => { e.preventDefault(); activate(btn); });
   });
 
-  // Default: home
-  const homeBtn =
-    document.querySelector('footer .footer-btns[data-target="home"]') ||
-    document
-      .querySelector('footer .footer-btns [data-target="home"]')
-      ?.closest(".footer-btns") ||
-    footerButtons[0];
-  activateFromButton(homeBtn);
+  // default: home
+  const homeBtn = document.querySelector('footer .footer-btns [data-target="home"]')?.closest(".footer-btns") || footerBtns[0];
+  activate(homeBtn);
+
+  // apply persisted prefs
+  applyTheme(currentTheme);
+  applyLang(currentLang);
+  refreshFavUI();
 });
 
-// ── Info dropdowns ─────────────────────────────────────────────────────────
-function myFunction() {
-  document
-    .getElementById("info-algemeen-myDropdown")
-    .classList.toggle("show-algemeen");
-}
-function myFunction2() {
-  document
-    .getElementById("info-Bereikbaarheid-myDropdown")
-    .classList.toggle("show-Bereikbaarheid");
-}
+// ═══════════════════════════════════════════════
+//  INFO DROPDOWNS
+// ═══════════════════════════════════════════════
+function myFunction()  { document.getElementById("info-algemeen-myDropdown").classList.toggle("show-algemeen"); }
+function myFunction2() { document.getElementById("info-Bereikbaarheid-myDropdown").classList.toggle("show-Bereikbaarheid"); }
 
-// ── Day switcher ───────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════
+//  DAY SWITCHER
+// ═══════════════════════════════════════════════
 function showLineupDay(day) {
-  ["zaterdag", "zondag"].forEach((d) => {
+  ["zaterdag","zondag"].forEach(d => {
     const el = document.getElementById(`lineup-${d}`);
     if (el) el.style.display = d === day ? "flex" : "none";
   });
-
-  document.querySelectorAll(".lineup-dag-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.day === day);
-  });
+  document.querySelectorAll(".lineup-dag-btn").forEach(b =>
+    b.classList.toggle("active", b.dataset.day === day));
 }
 
-// ── Lineup rendering ───────────────────────────────────────────────────────
-const DAY_START_MIN = 10 * 60; // 10:00
-const DAY_END_MIN = 24 * 60; // 24:00 (last tick shown)
-const PX_PER_15MIN = 57.5;
-const PX_PER_MIN = PX_PER_15MIN / 15;
-const STAGE_ORDER = ["poton", "club", "lake", "hanggar"];
-const STAGE_LABELS = {
-  poton: "Poton",
-  club: "Club",
-  lake: "Lake",
-  hanggar: "Hanggar",
-};
-const TOTAL_MINUTES = DAY_END_MIN - DAY_START_MIN; // 840 min
-const TOTAL_TICKS = TOTAL_MINUTES / 15; // 56 ticks
-const STAGE_COLORS = {
-  poton: "#e3b505", // yellow
-  club: " #247ba0;", // blue
-  lake: "#f03228", // red
-  hanggar: "#50c878", // green
-};
+// ═══════════════════════════════════════════════
+//  LINEUP CONSTANTS
+// ═══════════════════════════════════════════════
+const DAY_START_MIN = 10 * 60;
+const DAY_END_MIN   = 24 * 60;
+const PX_PER_15MIN  = 57.5;
+const PX_PER_MIN    = PX_PER_15MIN / 15;
+const STAGE_ORDER   = ["poton","club","lake","hanggar"];
+const STAGE_LABELS  = { poton:"Poton", club:"Club", lake:"Lake", hanggar:"Hanggar" };
+const STAGE_COLORS  = { poton:"#e3b505", club:"#247ba0", lake:"#f03228", hanggar:"#50c878" };
+const TOTAL_TICKS   = (DAY_END_MIN - DAY_START_MIN) / 15;
 
 function parseMin(t) {
-  const [h, m] = String(t ?? "")
-    .trim()
-    .split(":")
-    .map(Number);
-  return isNaN(h) || isNaN(m) ? NaN : h * 60 + m;
+  const [h, m] = String(t ?? "").trim().split(":").map(Number);
+  return (isNaN(h) || isNaN(m)) ? NaN : h * 60 + m;
 }
 
 function buildTimeHeader() {
-  const header = document.createElement("div");
-  header.className = "lineup-time-header";
-
+  const hdr = document.createElement("div");
+  hdr.className = "lineup-time-header";
   for (let i = 0; i <= TOTAL_TICKS; i++) {
     const tick = document.createElement("div");
     tick.className = "lineup-time-tick";
-    const totalMin = DAY_START_MIN + i * 15;
-    const h = Math.floor(totalMin / 60);
-    const m = totalMin % 60;
-    tick.textContent = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
-    header.appendChild(tick);
+    const min = DAY_START_MIN + i * 15;
+    tick.textContent = `${String(Math.floor(min/60)%24).padStart(2,"0")}:${String(min%60).padStart(2,"0")}`;
+    hdr.appendChild(tick);
   }
-  return header;
+  return hdr;
 }
 
 function renderActsForDay(dayKey, acts) {
   const container = document.getElementById(`lineup-${dayKey}`);
   if (!container) return;
-
-  // Clear previous render (keep the structure intact if already built)
   container.innerHTML = "";
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
+  container.style.cssText = "display:flex;flex-direction:column;";
 
-  // ── Table ──
   const table = document.createElement("div");
   table.className = "lineup-table";
-  container.appendChild(table);
 
-  // Stage labels column
+  // Stage label column
   const stagesCol = document.createElement("div");
   stagesCol.className = "lineup-stages";
-  STAGE_ORDER.forEach((key) => {
+  STAGE_ORDER.forEach(k => {
     const lbl = document.createElement("div");
     lbl.className = "lineup-stage-label";
-    lbl.textContent = STAGE_LABELS[key];
+    lbl.textContent = STAGE_LABELS[k];
     stagesCol.appendChild(lbl);
   });
 
   // Schedule column
-  const scheduleCol = document.createElement("div");
-  scheduleCol.className = "lineup-schedule";
+  const schedCol = document.createElement("div");
+  schedCol.className = "lineup-schedule";
+  schedCol.appendChild(buildTimeHeader());
 
-  scheduleCol.appendChild(buildTimeHeader());
-
-  // Group acts by stage
   const byStage = {};
-  STAGE_ORDER.forEach((k) => (byStage[k] = []));
-  (acts || []).forEach((a) => {
-    if (a?.stage && byStage[a.stage]) byStage[a.stage].push(a);
-  });
+  STAGE_ORDER.forEach(k => byStage[k] = []);
+  (acts || []).forEach(a => { if (a?.stage && byStage[a.stage]) byStage[a.stage].push(a); });
 
-  STAGE_ORDER.forEach((stageKey) => {
+  STAGE_ORDER.forEach(stageKey => {
     const row = document.createElement("div");
     row.className = "lineup-row";
-    // Width = total ticks × px/tick
     row.style.width = `${TOTAL_TICKS * PX_PER_15MIN}px`;
 
-    byStage[stageKey].forEach((act) => {
+    (byStage[stageKey] || []).forEach(act => {
       const start = parseMin(act["begin-time"]);
-      const end = parseMin(act["end-time"]);
+      const end   = parseMin(act["end-time"]);
       if (isNaN(start) || isNaN(end) || end <= start) return;
-
-      const leftPx = (start - DAY_START_MIN) * PX_PER_MIN + 10;
-      const widthPx = (end - start) * PX_PER_MIN - 2; // 2px gap
-
-      if (!isFinite(leftPx) || !isFinite(widthPx) || widthPx <= 0) return;
+      const leftPx  = (start - DAY_START_MIN) * PX_PER_MIN ;
+      const widthPx = (end   - start) * PX_PER_MIN ;
+      if (!isFinite(leftPx) || widthPx <= 0) return;
 
       const bar = document.createElement("div");
       bar.className = "lineup-act-bar";
-      bar.style.left = `${leftPx}px`;
+      bar.style.left       = `${leftPx}px`;
+      bar.style.width      = `${widthPx}px`;
       bar.style.background = STAGE_COLORS[stageKey] || "#247ba0";
-      bar.style.width = `${widthPx}px`;
-      if (act.description) bar.title = act.description;
+      bar.dataset.favkey   = favKey(act);
+
+      const nm = document.createElement("span"); nm.className = "act-name"; nm.textContent = act.name || "Act";
+      const tm = document.createElement("span"); tm.className = "act-time"; tm.textContent = `${act["begin-time"]} – ${act["end-time"]}`;
+      const fv = document.createElement("span"); fv.className = "bar-fav";  fv.textContent = isFav(act) ? "♥" : "";
+
+      bar.appendChild(nm); bar.appendChild(tm); bar.appendChild(fv);
       bar.addEventListener("click", () => openActSheet(act));
-
-      const name = document.createElement("span");
-      name.className = "act-name";
-      name.textContent = act.name || "Act";
-
-      const time = document.createElement("span");
-      time.className = "act-time";
-      // time.textContent = `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
-
-      bar.appendChild(name);
-      bar.appendChild(time);
       row.appendChild(bar);
     });
-
-    scheduleCol.appendChild(row);
+    schedCol.appendChild(row);
   });
 
   table.appendChild(stagesCol);
-  table.appendChild(scheduleCol);
+  table.appendChild(schedCol);
+  container.appendChild(table);
 }
 
-// ── Act bottom sheet ───────────────────────────────────────────────────────
-const STAGE_NAMES = {
-  poton: "Poton",
-  club: "Club",
-  lake: "Lake",
-  hanggar: "Hanggar",
-};
+// ═══════════════════════════════════════════════
+//  ACT SHEET
+// ═══════════════════════════════════════════════
+const STAGE_NAMES = { poton:"Poton", club:"Club", lake:"Lake", hanggar:"Hanggar" };
 
-function getYouTubeEmbedUrl(url) {
+function getEmbedUrl(url) {
   if (!url) return null;
-  // Support youtube.com/watch?v=ID and youtu.be/ID
   const m = url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
   return m ? `https://www.youtube.com/embed/${m[1]}?rel=0&autoplay=1` : null;
 }
 
 function openActSheet(act) {
-  const sheet = document.getElementById("actSheet");
-  const overlay = document.getElementById("actSheetOverlay");
+  if (typeof act === "string") act = JSON.parse(act);
+  currentAct = act;
 
-  // Set stage color accent
+  const sheet   = document.getElementById("actSheet");
+  const overlay = document.getElementById("actSheetOverlay");
   sheet.dataset.stage = act.stage || "";
 
-  // Fill text fields
-  document.getElementById("actSheetStage").textContent =
-    STAGE_NAMES[act.stage] || act.stage || "";
-  document.getElementById("actSheetName").textContent = act.name || "";
-  document.getElementById("actSheetTagline").textContent = act.tagline || "";
-  document.getElementById("actSheetDescription").textContent =
-    act.description || "";
-  document.getElementById("actSheetTime").textContent =
-    `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
+  // basic fields
+  document.getElementById("actSheetStage").textContent    = STAGE_NAMES[act.stage] || act.stage || "";
+  document.getElementById("actSheetName").textContent     = act.name || "";
+  document.getElementById("actSheetTagline").textContent  = (currentLang === "en" && act.tagline_en) ? act.tagline_en : (act.tagline || "");
+  document.getElementById("actSheetTime").textContent     = `${String(act["begin-time"]).trim()} – ${String(act["end-time"]).trim()}`;
+  document.getElementById("actSheetDescription").textContent = (currentLang === "en" && act.description_en) ? act.description_en : (act.description || "");
 
-  // Video vs placeholder
-  const embedUrl = getYouTubeEmbedUrl(act.videoUrl);
-  const videoWrap = document.getElementById("actSheetVideoWrap");
-  const imgWrap = document.getElementById("actSheetImgWrap");
-  const iframe = document.getElementById("actSheetIframe");
+  // placeholders
+  document.getElementById("actPractical").textContent = currentLang === "en" ? "To be added later." : "Wordt later aangevuld.";
+  document.getElementById("actMoreInfo").textContent  = currentLang === "en" ? "To be added later." : "Wordt later aangevuld.";
 
-  if (embedUrl) {
-    iframe.src = embedUrl;
-    videoWrap.style.display = "block";
-    imgWrap.style.display = "none";
-  } else {
-    iframe.src = "";
-    videoWrap.style.display = "none";
-    imgWrap.style.display = "block";
+  // artist block
+  const ar = act.artist || {};
+  const genre  = ar.genre  || "";
+  const origin = (currentLang === "en" && ar.origin_en) ? ar.origin_en : (ar.origin || "");
+
+  const photoEl = document.getElementById("actArtistPhoto");
+  photoEl.innerHTML = ar.photo ? `<img src="${ar.photo}" alt="${act.name}"/>` : "🎤";
+  document.getElementById("actGenre").textContent  = genre;
+  document.getElementById("actOrigin").textContent = origin;
+  document.getElementById("actGenreRow").style.display  = genre  ? "flex" : "none";
+  document.getElementById("actOriginRow").style.display = origin ? "flex" : "none";
+  document.getElementById("actArtistBlock").style.display = (genre || origin || ar.photo) ? "block" : "none";
+
+  // socials
+  const socialsEl = document.getElementById("actSocials");
+  socialsEl.innerHTML = "";
+  if (ar.socials?.instagram) {
+    const a = document.createElement("a");
+    a.href = `https://instagram.com/${ar.socials.instagram}`;
+    a.target = "_blank"; a.className = "act-social-btn";
+    a.textContent = "📷 Instagram";
+    socialsEl.appendChild(a);
+  }
+  if (ar.socials?.spotify) {
+    const a = document.createElement("a");
+    a.href = `https://open.spotify.com/artist/${ar.socials.spotify}`;
+    a.target = "_blank"; a.className = "act-social-btn spotify";
+    a.textContent = "🎵 Spotify";
+    socialsEl.appendChild(a);
   }
 
-  // Slide up
-  overlay.style.display = "block";
-  requestAnimationFrame(() => {
-    overlay.classList.add("open");
-    sheet.classList.add("open");
-  });
+  // video
+  const embed = getEmbedUrl(act.videoUrl);
+  document.getElementById("actSheetVideoWrap").style.display = embed ? "block" : "none";
+  document.getElementById("actSheetImgWrap").style.display   = embed ? "none"  : "block";
+  document.getElementById("actSheetIframe").src = embed || "";
 
+  refreshFavUI();
+
+  overlay.style.display = "block";
+  requestAnimationFrame(() => { overlay.classList.add("open"); sheet.classList.add("open"); });
   document.body.style.overflow = "hidden";
 }
 
 function closeActSheet() {
-  const sheet = document.getElementById("actSheet");
-  const overlay = document.getElementById("actSheetOverlay");
-
-  sheet.classList.remove("open");
-  overlay.classList.remove("open");
-
-  // Stop video
+  document.getElementById("actSheet").classList.remove("open");
+  document.getElementById("actSheetOverlay").classList.remove("open");
   document.getElementById("actSheetIframe").src = "";
-
   setTimeout(() => {
-    overlay.style.display = "none";
+    document.getElementById("actSheetOverlay").style.display = "none";
     document.body.style.overflow = "";
   }, 380);
 }
 
+// ═══════════════════════════════════════════════
+//  LOAD DATA
+// ═══════════════════════════════════════════════
 async function loadAndRenderLineup() {
   try {
     const res = await fetch("info.json");
-    if (!res.ok) throw new Error(`Failed: ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (!Array.isArray(data)) return;
 
-    const byDay = Object.fromEntries(data.map((d) => [d.day, d.acts]));
-    renderActsForDay("zaterdag", byDay["zaterdag"] ?? []);
-    renderActsForDay("zondag", byDay["zondag"] ?? []);
+    data.forEach(d => { allActsByDay[d.day] = d.acts; });
+    Object.entries(allActsByDay).forEach(([day, acts]) => renderActsForDay(day, acts));
 
-    // Show Saturday by default; hide Sunday
-    const zondag = document.getElementById("lineup-zondag");
-    if (zondag) zondag.style.display = "none";
-
-    // Mark Saturday button active
-    const btns = document.querySelectorAll(".lineup-dag-btn");
-    btns.forEach((b) =>
-      b.classList.toggle("active", b.dataset.day === "zaterdag"),
-    );
-  } catch (err) {
-    console.error(err);
-  }
+    document.getElementById("lineup-zondag").style.display = "none";
+    document.querySelectorAll(".lineup-dag-btn").forEach(b =>
+      b.classList.toggle("active", b.dataset.day === "zaterdag"));
+  } catch (e) { console.error(e); }
 }
-
 document.addEventListener("DOMContentLoaded", loadAndRenderLineup);

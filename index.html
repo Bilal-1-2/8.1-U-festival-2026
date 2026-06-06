@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl" data-theme="light" data-lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,203 +10,300 @@
     <header>
       <div class="brand-container">
         <img
-          src="assets\images\logo\logo_white.svg"
+          src="assets/images/logo/logo_white.svg"
           alt=""
           class="brand-logo"
         />
         <p class="brand-title">FESTIVAL</p>
       </div>
       <div class="header-controls">
-        <img src="assets\images\night-mode.png" alt="" class="theme-toggle" />
-        <img
-          src="assets\images/Flag_of_the_Netherlands.svg.png"
-          alt=""
-          class="language-flag"
-        />
+        <!-- Dark/light toggle -->
+        <button
+          class="hdr-btn"
+          id="themeBtn"
+          onclick="toggleTheme()"
+          title="Thema wisselen"
+        >
+          <span id="themeIcon">🌙</span>
+        </button>
+        <!-- Language toggle -->
+        <button class="hdr-btn lang-btn" id="langBtn" onclick="toggleLang()">
+          <span id="langLabel">EN</span>
+        </button>
+        <!-- QR download -->
+        <button class="hdr-btn" onclick="openQR()" title="QR code">
+          <span>QR</span>
+        </button>
       </div>
     </header>
 
     <main>
-      <!-- home page -->
+      <!-- HOME -->
       <section class="screen" data-screen="home">
         <div class="home-titel">
-          <p style="font-size: 2.3rem">WELKOM BIJ</p>
+          <p
+            style="font-size: 2.3rem"
+            data-nl="WELKOM BIJ"
+            data-en="WELCOME TO"
+          >
+            WELKOM BIJ
+          </p>
           <p style="font-size: 3rem">U FESTIVAL</p>
         </div>
         <div class="home-meldingen">
-          <p>
+          <p
+            data-nl="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum rerum nam delectus sit hic fugit amet, sapiente cum commodi quaerat quod quo dignissimos reiciendis aliquid!"
+            data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum rerum nam delectus sit hic fugit amet, sapiente cum commodi quaerat quod quo dignissimos reiciendis aliquid!"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum
             rerum nam delectus sit hic fugit amet, sapiente cum commodi quaerat
-            quod quo dignissimos reiciendis aliquid! Placeat quis cumque
-            possimus.
+            quod quo dignissimos reiciendis aliquid!
           </p>
-          
         </div>
         <div class="home-meldingen">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum
-            rerum nam delectus sit hic fugit amet, sapiente cum commodi quaerat
-            quod quo dignissimos reiciendis aliquid! Placeat quis cumque
-            possimus.
+          <p
+            data-nl="Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis cumque possimus."
+            data-en="Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis cumque possimus."
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+            quis cumque possimus.
           </p>
-
         </div>
       </section>
-      
-      <!-- info page -->
+
+      <!-- INFO -->
       <section class="screen" data-screen="info">
         <div class="info-algemeen-dropdown">
-          <button onclick="myFunction()" class="info-algemeen-dropbtn">
-            Algemeen & contact
+          <button
+            onclick="myFunction()"
+            class="info-algemeen-dropbtn"
+            data-nl="Algemeen &amp; contact"
+            data-en="General &amp; contact"
+          >
+            Algemeen &amp; contact
           </button>
-          <div id="info-algemeen-myDropdown" class="info-algemeen-dropdown-content">
-            <p>
+          <div
+            id="info-algemeen-myDropdown"
+            class="info-algemeen-dropdown-content"
+          >
+            <p
+              data-nl="Het ❤️U Festival is voor (nieuwe) studenten in de regio Utrecht en is een aanvulling op UIT."
+              data-en="The ❤️U Festival is for (new) students in the Utrecht region and complements the UIT."
+            >
               Het ❤️U Festival is voor (nieuwe) studenten in de regio Utrecht en
               is een aanvulling op UIT.
             </p>
-
-            <p class="info-subtitle">Adres</p>
-            <p>
-              Locatie: Strijkviertel, Utrecht<br />
-              Navigatieadres: Strijkviertelweg, Utrecht<br />
-              Datum & Openingstijden: Zaterdag 5 september 2026 - 12:00 tot
-              23:00 uur
+            <p class="info-subtitle" data-nl="Adres" data-en="Address">Adres</p>
+            <p
+              data-nl="Locatie: Strijkviertel, Utrecht<br/>Navigatieadres: Strijkviertelweg, Utrecht<br/>Datum &amp; Openingstijden: Zaterdag 5 september 2026 — 12:00 tot 23:00 uur"
+              data-en="Location: Strijkviertel, Utrecht<br/>Navigation address: Strijkviertelweg, Utrecht<br/>Date &amp; Opening hours: Saturday 5 September 2026 — 12:00 to 23:00"
+            >
+              Locatie: Strijkviertel, Utrecht<br />Navigatieadres:
+              Strijkviertelweg, Utrecht<br />Datum &amp; Openingstijden:
+              Zaterdag 5 september 2026 — 12:00 tot 23:00 uur
             </p>
           </div>
         </div>
 
         <div class="info-Bereikbaarheid-dropdown">
-          <button onclick="myFunction2()" class="info-Bereikbaarheid-dropbtn">
-            Bereikbaarheid 
+          <button
+            onclick="myFunction2()"
+            class="info-Bereikbaarheid-dropbtn"
+            data-nl="Bereikbaarheid"
+            data-en="Getting here"
+          >
+            Bereikbaarheid
           </button>
-          <div id="info-Bereikbaarheid-myDropdown" class="info-Bereikbaarheid-dropdown-content">
+          <div
+            id="info-Bereikbaarheid-myDropdown"
+            class="info-Bereikbaarheid-dropdown-content"
+          >
             <div class="info-Bereikbaarheid-text">
-
-
-
-              
-            <p class="info-subtitle">Fiets</p>
-            <p>
-              Er is een grote gratis fietsenstalling aanwezig waar je jouw fiets
-              de gehele dag kunt stallen.
-            </p>
-
-            <p class="info-subtitle">Auto</p>
-            <p>
-              Je kunt een parkingticket aanschaffen. Parkeren kan op P+R
-              Papendorp, volg hiervoor de borden 'P online ticket'. Heb je geen
-              ticket van te voren gekocht? Dan kun je bij de parkeerwachter op
-              locatie een parkeerticket aanschaffen (PIN ONLY). Let wel op:
-              VOL=VOL
-            </p>
-
-            <p class="info-subtitle">OV</p>
-            <p>
-              Kom je met het openbaar vervoer? Plan dan je trip via
-              <a href="https://9292.nl">(https://9292.nl/)</a>.
-            </p>
-
-            <p class="info-subtitle">Shuttlebus</p>
-            <p>
-              Vanaf Utrecht Centraal kun je onze gratis shuttlebus richting het
-              festivalterrein pakken. Je vindt deze bus op het centraal station
-              aan de Mineurslaan. Volg de witte bordjes met zwarte pijlen én '
-              ❤️U Festival'. De bus rijdt tussen 12:00 uur & 19:00 uur richting
-              het festival en vanaf 21:00 uur kun je weer instappen om richting
-              het station te gaan.
-            </p>
-
-            <p class="info-subtitle">Taxi + Kiss & Ride</p>
-            <p>
-              Navigeer naar Strijkviertel, De Meern (Utrecht). Volg de borden
-              "Kiss & Ride ❤️U Festival", zodra je in de buurt bent van het
-              festivalterrein.
-            </p>
+              <p class="info-subtitle" data-nl="Fiets" data-en="Bicycle">
+                Fiets
+              </p>
+              <p
+                data-nl="Er is een grote gratis fietsenstalling aanwezig waar je jouw fiets de gehele dag kunt stallen."
+                data-en="There is a large free bicycle parking area where you can park your bike all day."
+              >
+                Er is een grote gratis fietsenstalling aanwezig waar je jouw
+                fiets de gehele dag kunt stallen.
+              </p>
+              <p class="info-subtitle" data-nl="Auto" data-en="Car">Auto</p>
+              <p
+                data-nl="Je kunt een parkingticket aanschaffen. Parkeren kan op P+R Papendorp, volg de borden 'P online ticket'. VOL=VOL."
+                data-en="You can purchase a parking ticket. Parking available at P+R Papendorp, follow signs 'P online ticket'. FULL=FULL."
+              >
+                Je kunt een parkingticket aanschaffen. Parkeren kan op P+R
+                Papendorp, volg de borden 'P online ticket'. VOL=VOL.
+              </p>
+              <p class="info-subtitle" data-nl="OV" data-en="Public transport">
+                OV
+              </p>
+              <p
+                data-nl="Kom je met het openbaar vervoer? Plan je trip via <a href='https://9292.nl'>9292.nl</a>."
+                data-en="Coming by public transport? Plan your trip via <a href='https://9292.nl'>9292.nl</a>."
+              >
+                Kom je met het openbaar vervoer? Plan je trip via
+                <a href="https://9292.nl">9292.nl</a>.
+              </p>
+              <p
+                class="info-subtitle"
+                data-nl="Shuttlebus"
+                data-en="Shuttle bus"
+              >
+                Shuttlebus
+              </p>
+              <p
+                data-nl="Vanaf Utrecht Centraal kun je onze gratis shuttlebus pakken. De bus rijdt tussen 12:00–19:00 richting het festival en vanaf 21:00 terug."
+                data-en="From Utrecht Central take our free shuttle bus. Runs 12:00–19:00 towards the festival and from 21:00 back."
+              >
+                Vanaf Utrecht Centraal kun je onze gratis shuttlebus pakken. De
+                bus rijdt tussen 12:00–19:00 richting het festival en vanaf
+                21:00 terug.
+              </p>
+              <p
+                class="info-subtitle"
+                data-nl="Taxi + Kiss &amp; Ride"
+                data-en="Taxi + Kiss &amp; Ride"
+              >
+                Taxi + Kiss &amp; Ride
+              </p>
+              <p
+                data-nl="Navigeer naar Strijkviertel, De Meern (Utrecht). Volg de borden 'Kiss &amp; Ride ❤️U Festival'."
+                data-en="Navigate to Strijkviertel, De Meern (Utrecht). Follow signs 'Kiss &amp; Ride ❤️U Festival'."
+              >
+                Navigeer naar Strijkviertel, De Meern (Utrecht). Volg de borden
+                'Kiss &amp; Ride ❤️U Festival'.
+              </p>
+            </div>
           </div>
         </div>
-          </div>
-        </div>
-
 
         <div class="info-lockers">
-          <p class="info-subtitle">Lockers</p>
+          <p class="info-subtitle" data-nl="Lockers" data-en="Lockers">
+            Lockers
+          </p>
           <div class="info-lockers-text">
-            <p>
+            <p
+              data-nl="Op het festivalterrein zijn kluisjes aanwezig waar je je spullen veilig kunt opbergen! Hier passen 3 à 4 jassen in."
+              data-en="Lockers are available at the festival grounds to safely store your belongings. They fit 3–4 jackets."
+            >
               Op het festivalterrein zijn kluisjes aanwezig waar je je spullen
               veilig kunt opbergen! Hier passen 3 à 4 jassen in.
             </p>
-            <p>
-              Goed om te weten: je kunt je kluisje gedurende de hele dag openen
-              en sluiten zo vaak je wilt. Het is niet mogelijk om online een
-              kluisje te reserveren.
+            <p
+              data-nl="Je kunt je kluisje de hele dag openen en sluiten. Online reserveren is niet mogelijk."
+              data-en="You can open and close your locker throughout the day. Online reservation is not possible."
+            >
+              Je kunt je kluisje de hele dag openen en sluiten. Online
+              reserveren is niet mogelijk.
             </p>
           </div>
         </div>
 
         <div class="info-faq">
-          <p class="info-subtitle">FAQ</p>
+          <p class="info-subtitle" data-nl="FAQ" data-en="FAQ">FAQ</p>
           <div class="info-faq-text">
             <p>
-              <strong>Ik gebruik medicatie. Wat nu?</strong><br />
-              Het is toegestaan om medicijnen mee te nemen in een dosis die je
-              maximaal nodig hebt op 1 dag. Een
-              doktersverklaring/medicatiepaspoort is noodzakelijk. De
-              beveiliging zal jouw documentatie beoordelen en de medicijnen
-              controleren. Het kan zijn dat de EHBO jouw medicijnen
-              (bijvoorbeeld als deze gevaarlijk zijn i.c.m. alcohol) in bewaring
-              neemt en je deze enkel kan innemen bij de EHBO.
-            </p>
-
-            <p>
-              <strong>Mag ik het festivalterrein tussentijds verlaten?</strong
+              <strong
+                data-nl="Ik gebruik medicatie. Wat nu?"
+                data-en="I use medication. What now?"
+                >Ik gebruik medicatie. Wat nu?</strong
               ><br />
-              Nee, helaas is dat niet mogelijk. Om de veiligheid van alle
-              bezoekers te kunnen waarborgen, kunnen we het niet toestaan dat
-              het festivalterrein tussentijds verlaten wordt.
+              <span
+                data-nl="Het is toegestaan om medicijnen mee te nemen in een dosis voor maximaal 1 dag. Een doktersverklaring is noodzakelijk."
+                data-en="You may bring medication for a maximum of 1 day's dose. A doctor's declaration is required."
+              >
+                Het is toegestaan om medicijnen mee te nemen in een dosis voor
+                maximaal 1 dag. Een doktersverklaring is noodzakelijk.
+              </span>
             </p>
-
             <p>
-              Wij hebben namelijk geen zicht op hetgeen wat een bezoeker buiten
-              het festivalterrein doet en in welke staat deze het terrein weer
-              betreedt. Hier kunnen dan ook geen uitzonderingen voor gemaakt
-              worden.
+              <strong
+                data-nl="Mag ik het terrein tussentijds verlaten?"
+                data-en="Can I leave the grounds mid-event?"
+                >Mag ik het terrein tussentijds verlaten?</strong
+              ><br />
+              <span
+                data-nl="Nee, helaas is dat niet mogelijk om veiligheidsredenen. Hier kunnen geen uitzonderingen voor gemaakt worden."
+                data-en="No, unfortunately this is not possible for safety reasons. No exceptions can be made."
+              >
+                Nee, helaas is dat niet mogelijk om veiligheidsredenen. Hier
+                kunnen geen uitzonderingen voor gemaakt worden.
+              </span>
             </p>
-
             <p>
-              <strong>Zijn er lockers?</strong><br />
-              Yes, deze zijn er! Op het terrein kun je medium & grote lockers
-              huren.
+              <strong data-nl="Zijn er lockers?" data-en="Are there lockers?"
+                >Zijn er lockers?</strong
+              ><br />
+              <span
+                data-nl="Ja! Op het terrein kun je medium &amp; grote lockers huren."
+                data-en="Yes! You can rent medium &amp; large lockers at the grounds."
+              >
+                Ja! Op het terrein kun je medium &amp; grote lockers huren.
+              </span>
             </p>
           </div>
         </div>
+
         <div class="info-GoldenGLU">
-          <p class="info-subtitle">Golden-GLU</p>
+          <p class="info-subtitle" data-nl="Golden-GLU" data-en="Golden-GLU">
+            Golden-GLU
+          </p>
           <div class="info-GoldenGLU-text">
-            <p>
-              Studenten van het GLU hebben tijdens het festival speciale
-              privileges en zijn herkenbaar aan een gouden armbandje.
+            <p
+              data-nl="Studenten van het GLU hebben speciale privileges en zijn herkenbaar aan een gouden armbandje."
+              data-en="GLU students have special privileges and are recognizable by a golden wristband."
+            >
+              Studenten van het GLU hebben speciale privileges en zijn
+              herkenbaar aan een gouden armbandje.
             </p>
-            <p>
-              Met dit gouden armbandje kunnen ze tijdens het festival gebruik
-              maken van de gouden toiletten en met goud gemarkeerde bestelpunten
-              aan de bars zonder in een rij te hoeven staan.
+            <p
+              data-nl="Met dit armbandje kunnen ze gebruik maken van de gouden toiletten en bestelpunten zonder in de rij te staan."
+              data-en="With this wristband they can use the golden toilets and order points without queuing."
+            >
+              Met dit armbandje kunnen ze gebruik maken van de gouden toiletten
+              en bestelpunten zonder in de rij te staan.
             </p>
           </div>
         </div>
       </section>
-      <!-- lineup page -->
+
+      <!-- LINEUP -->
       <section class="screen" data-screen="lineup">
         <div class="lineup-dag-btn-container">
-          <button class="lineup-dag-btn" data-day="zaterdag" onclick="showLineupDay('zaterdag')">Zaterdag</button>
-          <button class="lineup-dag-btn" data-day="zondag"   onclick="showLineupDay('zondag')">Zondag</button>
+          <button
+            class="lineup-dag-btn"
+            data-day="zaterdag"
+            onclick="showLineupDay('zaterdag')"
+            data-nl="Zaterdag"
+            data-en="Saturday"
+          >
+            Zaterdag
+          </button>
+          <button
+            class="lineup-dag-btn"
+            data-day="zondag"
+            onclick="showLineupDay('zondag')"
+            data-nl="Zondag"
+            data-en="Sunday"
+          >
+            Zondag
+          </button>
         </div>
-        <!-- JS renders the grid inside these containers -->
+
+        <button  id="favBtn" onclick="openFavScreen()">
+          <span class="">Mijn Favoriet</span>
+        </button>
         <div class="lineup-main" id="lineup-zaterdag"></div>
-        <div class="lineup-main" id="lineup-zondag"   style="display:none;"></div>
+        <div class="lineup-main" id="lineup-zondag" style="display: none"></div>
       </section>
-      <!-- map page -->
+
+      <!-- MAP -->
       <section class="screen" data-screen="map"><p>Hi (Map)</p></section>
     </main>
+
     <footer>
       <button class="footer-btns">
         <img
@@ -214,7 +311,6 @@
           class="filter-black"
           data-target="home"
         />
-        <!-- <p>Home</p> -->
       </button>
       <button class="footer-btns">
         <img
@@ -222,7 +318,6 @@
           class="filter-black"
           data-target="info"
         />
-        <!-- <p>Info</p> -->
       </button>
       <button class="footer-btns">
         <img
@@ -230,7 +325,6 @@
           class="filter-black"
           data-target="lineup"
         />
-        <!-- <p>Lineup</p> -->
       </button>
       <button class="footer-btns">
         <img
@@ -238,55 +332,156 @@
           class="filter-black"
           data-target="map"
         />
-        <!-- <p>Map</p> -->
       </button>
     </footer>
 
-<!-- Act detail bottom sheet -->
-<div class="act-sheet-overlay" id="actSheetOverlay" onclick="closeActSheet()"></div>
-<div class="act-sheet" id="actSheet">
-  <div class="act-sheet-handle"></div>
-  <button class="act-sheet-close" onclick="closeActSheet()">✕</button>
-
-  <div class="act-sheet-inner">
-    <!-- Video embed (only if videoUrl present) -->
-    <div class="act-sheet-video-wrap" id="actSheetVideoWrap">
-      <iframe id="actSheetIframe" src="" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-    <!-- No-video placeholder image area -->
-    <div class="act-sheet-img-wrap" id="actSheetImgWrap">
-      <div class="act-sheet-img-placeholder" id="actSheetImgPlaceholder">
-        <span>🎵</span>
+    <!-- ── FAVORITES OVERLAY ─────────────────────────── -->
+    <div class="fav-overlay" id="favOverlay" onclick="closeFavScreen()"></div>
+    <div class="fav-screen" id="favScreen">
+      <div class="fav-header">
+        <h2 data-nl="Favorieten" data-en="Favourites">Favorieten</h2>
+        <button class="act-sheet-close" onclick="closeFavScreen()">✕</button>
       </div>
-    </div> 
-
-    <div class="act-sheet-body">
-      <p class="act-sheet-stage" id="actSheetStage"></p>
-      <h2 class="act-sheet-name" id="actSheetName"></h2>
-      <p class="act-sheet-tagline" id="actSheetTagline"></p>
-      <p class="act-sheet-time" id="actSheetTime"></p>
-
-      <div class="act-sheet-divider"></div>
-
-      <p class="act-sheet-section-title">Over de artiest</p>
-      <p class="act-sheet-description" id="actSheetDescription"></p>
-
-      <!-- Placeholder sections for later -->
-      <p class="act-sheet-section-title">Praktisch</p>
-      <p class="act-sheet-placeholder-text" id="actSheetPractical">Wordt later aangevuld.</p>
-
-      <p class="act-sheet-section-title">Meer info</p>
-      <p class="act-sheet-placeholder-text" id="actSheetMore">Wordt later aangevuld.</p>
+      <div class="fav-list" id="favList"></div>
     </div>
-  </div>
-</div>
 
-<script src="assets/js/script.js"></script>
+    <!-- ── ACT BOTTOM SHEET ──────────────────────────── -->
+    <div
+      class="act-sheet-overlay"
+      id="actSheetOverlay"
+      onclick="closeActSheet()"
+    ></div>
+    <div class="act-sheet" id="actSheet">
+      <div class="act-sheet-handle"></div>
+      <button class="act-sheet-close" onclick="closeActSheet()">✕</button>
+      <div class="act-sheet-inner">
+        <div class="act-sheet-video-wrap" id="actSheetVideoWrap">
+          <iframe
+            id="actSheetIframe"
+            src=""
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="act-sheet-img-wrap" id="actSheetImgWrap">
+          <div class="act-sheet-img-placeholder"><span>🎵</span></div>
+        </div>
 
+        <div class="act-sheet-body">
+          <div class="act-sheet-top-row">
+            <p class="act-sheet-stage" id="actSheetStage"></p>
+            <button
+              class="act-fav-btn"
+              id="actFavBtn"
+              onclick="toggleFavFromSheet()"
+            >
+              ♡
+            </button>
+          </div>
+          <h2 class="act-sheet-name" id="actSheetName"></h2>
+          <p class="act-sheet-tagline" id="actSheetTagline"></p>
+          <p class="act-sheet-time" id="actSheetTime"></p>
 
+          <!-- Artist block -->
+          <div class="act-artist-block" id="actArtistBlock">
+            <div class="act-artist-row">
+              <div class="act-artist-photo" id="actArtistPhoto">🎤</div>
+              <div class="act-artist-meta">
+                <div class="act-meta-row" id="actGenreRow">
+                  <span class="act-meta-label" data-nl="Genre" data-en="Genre"
+                    >Genre</span
+                  >
+                  <span class="act-meta-value" id="actGenre"></span>
+                </div>
+                <div class="act-meta-row" id="actOriginRow">
+                  <span
+                    class="act-meta-label"
+                    data-nl="Afkomstig uit"
+                    data-en="From"
+                    >Afkomstig uit</span
+                  >
+                  <span class="act-meta-value" id="actOrigin"></span>
+                </div>
+              </div>
+            </div>
+            <div class="act-socials" id="actSocials"></div>
+          </div>
 
+          <div class="act-sheet-divider"></div>
+
+          <p
+            class="act-sheet-section-title"
+            data-nl="Over de artiest"
+            data-en="About the artist"
+          >
+            Over de artiest
+          </p>
+          <p class="act-sheet-description" id="actSheetDescription"></p>
+
+          <p
+            class="act-sheet-section-title"
+            data-nl="Praktisch"
+            data-en="Practical"
+          >
+            Praktisch
+          </p>
+          <p
+            class="act-sheet-placeholder-text"
+            id="actPractical"
+            data-nl="Wordt later aangevuld."
+            data-en="To be added later."
+          >
+            Wordt later aangevuld.
+          </p>
+
+          <p
+            class="act-sheet-section-title"
+            data-nl="Meer info"
+            data-en="More info"
+          >
+            Meer info
+          </p>
+          <p
+            class="act-sheet-placeholder-text"
+            id="actMoreInfo"
+            data-nl="Wordt later aangevuld."
+            data-en="To be added later."
+          >
+            Wordt later aangevuld.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── QR SHEET ───────────────────────────────────── -->
+    <div class="act-sheet-overlay" id="qrOverlay" onclick="closeQR()"></div>
+    <div class="act-sheet" id="qrSheet">
+      <div class="act-sheet-handle"></div>
+      <button class="act-sheet-close" onclick="closeQR()">✕</button>
+      <div class="act-sheet-inner qr-inner">
+        <h2 data-nl="Download de app" data-en="Download the app">
+          Download de app
+        </h2>
+        <p
+          data-nl="Scan de QR-code om de festival-app op je telefoon te zetten."
+          data-en="Scan the QR code to install the festival app on your phone."
+        >
+          Scan de QR-code om de festival-app op je telefoon te zetten.
+        </p>
+        <div id="qrCanvas"></div>
+        <p class="qr-url-label" id="qrUrlLabel"></p>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

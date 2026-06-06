@@ -1,117 +1,35 @@
-/* Dropdown Button */
-.info-algemeen-dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  width: 100%;
-  text-align: left;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.info-algemeen-dropbtn:hover,
-.info-algemeen-dropbtn:focus {
-  background-color: #2980b9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.info-algemeen-dropdown {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 5px;
-}
-/* Dropdown Content (Hidden by Default)
-   Uses normal document flow so expanding pushes other content down. */
-.info-algemeen-dropdown-content {
-  display: none;
-  position: relative;
-  background-color: #ffffff;
-  min-width: 0;
-  box-shadow: none;
-  z-index: auto;
-  margin-top: 8px;
-  padding: 8px 0;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show-algemeen {
-  display: block;
-}
-
-/* bereikbaarheid */
-
-/* Dropdown Button */
+/* ── INFO DROPDOWNS ─────────────────────────────────── */
+.info-algemeen-dropbtn,
 .info-Bereikbaarheid-dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  width: 100%;
-  text-align: left;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+  background: var(--secondary); color: white;
+  padding: 16px; font-size: 16px; width: 100%;
+  text-align: left; border-radius: 10px; border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.info-algemeen-dropbtn:hover,
+.info-Bereikbaarheid-dropbtn:hover { background: #1a5f7a; }
+
+.info-algemeen-dropdown,
+.info-Bereikbaarheid-dropdown {
+  position: relative; display: inline-block;
+  width: 100%; margin-bottom: 5px;
 }
 
-/* Dropdown button on hover & focus */
-.info-Bereikbaarheid-dropbtn:hover,
-.info-Bereikbaarheid-dropbtn:focus {
-  background-color: #2980b9;
+.info-algemeen-dropdown-content,
+.info-Bereikbaarheid-dropdown-content {
+  display: none; position: relative;
+  background: var(--bg2); color: var(--text);
+  margin-top: 8px; padding: 8px 12px;
+  border-radius: 8px;
 }
+.show-algemeen     { display: block; }
+.show-Bereikbaarheid { display: block; }
 
-/* Subtitle inside dropdown content (same style everywhere)
-   Only apply when the subtitle is inside the dropdown content blocks (like Algemeen/Bereikbaarheid). */
 .info-algemeen-dropdown-content .info-subtitle,
 .info-Bereikbaarheid-dropdown-content .info-subtitle {
-  color: #247ba0;
-  font-weight: 700;
-  margin: 14px 0 14px 0;
-  font-size: 1.1rem;
+  color: var(--secondary); font-weight: 700;
+  margin: 14px 0; font-size: 1rem;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.info-Bereikbaarheid-dropdown {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-/* Dropdown Content (Hidden by Default)
-   Uses normal document flow so expanding pushes other content down. */
-.info-Bereikbaarheid-dropdown-content {
-  display: none;
-  position: relative;
-  background-color: #ffffff;
-  min-width: 0;
-  box-shadow: none;
-  z-index: auto;
-  margin-top: 8px;
-  padding: 8px 0;
-}
-a:link {
-  color: blue;
-}
-
-/* visited link */
-a:visited {
-  color: blue;
-}
-
-/* mouse over link */
-a:hover {
-  color: blue;
-}
-
-/* selected link */
-a:active {
-  color: blue;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show-Bereikbaarheid {
-  display: block;
-}
+a:link, a:visited { color: var(--secondary); }
+a:hover { opacity: 0.75; }

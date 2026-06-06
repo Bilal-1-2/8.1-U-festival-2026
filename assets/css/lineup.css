@@ -1,14 +1,13 @@
-/* ── Lineup screen ─────────────────────────────────── */
+/* ── LINEUP SCREEN ──────────────────────────────────── */
 main .screen[data-screen="lineup"] {
-  color: #111;
-  background: #fff;
+  color: var(--text);
+  background: var(--bg);
   padding: 16px;
-  overflow: hidden;          /* outer container: no scroll */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* Day selector buttons */
 .lineup-dag-btn-container {
   display: flex;
   gap: 12px;
@@ -18,7 +17,7 @@ main .screen[data-screen="lineup"] {
 
 .lineup-dag-btn {
   color: white;
-  background-color: #247ba0;
+  background: var(--secondary);
   border: 0;
   width: 9.4rem;
   height: 3rem;
@@ -27,304 +26,144 @@ main .screen[data-screen="lineup"] {
   cursor: pointer;
   transition: background 0.2s;
 }
-.lineup-dag-btn:hover { background-color: #1a5f7a; }
-.lineup-dag-btn.active { background-color: #f03228; }
-
-/* ── The main scrollable area ──────────────────────── */
+.lineup-dag-btn:hover {
+  background: #1a5f7a;
+}
+.lineup-dag-btn.active {
+  background: var(--accent);
+}
+#favBtn{
+  background-color: var(--accent);
+  color: white;
+  font-size: 1.6rem;
+  border: 0;
+  border-radius: 20px;
+  padding: 1rem;
+}
 .lineup-main {
+  justify-content: center;
   overflow-x: auto;
   overflow-y: auto;
   flex: 1;
-  min-height: 0;            /* allow flex child to shrink */
+  min-height: 0;
 }
 
-/* Grid: col-1 = stage labels (fixed width), col-2 = schedule */
 .lineup-table {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  min-width: max-content;   /* let the schedule column be as wide as it needs */
+  grid-template-columns: 77px 1fr;
+  min-width: max-content;
 }
 
-/* ── Stage label column ───────────────────────────── */
-/* ── Stage label column ───────────────────────────── */
 .lineup-stages {
   display: flex;
   flex-direction: column;
-  padding-top: 32px;       
+  padding-top: 32px;
   position: sticky;
   left: 0;
-  background: #fff;         
+  background: var(--bg);
   z-index: 10;
 }
-
 .lineup-stage-label {
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 10px;
-  color: #247ba0;
+  color: var(--secondary);
   font-weight: 700;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  border-right: 2px solid #247ba020;
+  border-right: 2px solid rgba(36, 123, 160, 0.15);
   white-space: nowrap;
-  background: inherit;      /* ensures background matches */
+  background: inherit;
 }
 
-/* ── Schedule area (time header + act rows) ─────────  */
 .lineup-schedule {
-  position: relative;
   display: flex;
   flex-direction: column;
 }
 
-/* Time header */
 .lineup-time-header {
   display: flex;
   height: 32px;
   align-items: flex-end;
   padding-bottom: 4px;
-  border-bottom: 2px solid #247ba030;
+  border-bottom: 2px solid rgba(36, 123, 160, 0.2);
   flex-shrink: 0;
 }
-
 .lineup-time-tick {
-  width: 57.5px;           /* one tick = 15 min */
-  font-size: 0.65rem;
-  color: #247ba0;
+  width: 57.5px;
+  font-size: 0.85rem;
+  color: var(--secondary);
   white-space: nowrap;
-  text-align: left;        /* label sits at the left edge = same origin as act bars */
+  text-align: left;
   flex-shrink: 0;
 }
-/* Show every 15-min label; full hours are bolder */
-.lineup-time-tick:nth-child(4n+1) {
-  color: #247ba0;
+.lineup-time-tick:nth-child(4n + 1) {
   font-weight: 700;
-  font-size: 0.65rem;
 }
-.lineup-time-tick:not(:nth-child(4n+1)) {
-  color: #247ba0;
-  font-size: 0.65rem;
-}
+/* .lineup-time-tick:not(:nth-child(4n+1)) { opacity: 0.6; } */
 
-/* Row per stage */
 .lineup-row {
   position: relative;
   height: 60px;
-  border-bottom: 1px solid #247ba015;
+  border-bottom: 1px solid rgba(36, 123, 160, 0.08);
 }
-
-/* Subtle vertical grid lines */
 .lineup-row::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background-image: repeating-linear-gradient(
     90deg,
-    #247ba010 0px,
-    #247ba010 1px,
+    rgba(36, 123, 160, 0.07) 0px,
+    rgba(36, 123, 160, 0.07) 1px,
     transparent 1px,
-    transparent 230px        /* 4 × 57.5px = 230px per hour */
+    transparent 230px
   );
-  pointer-events: none;
 }
 
-/* ── Act bars ─────────────────────────────────────── */
+/* ── ACT BARS ───────────────────────────────────────── */
 .lineup-act-bar {
   position: absolute;
   top: 6px;
   height: 48px;
   border-radius: 8px;
-  background: #247ba0;
   color: #fff;
   font-size: 0.75rem;
   line-height: 1.2;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 6px 10px;
+  padding: 5px 8px;
   box-sizing: border-box;
   cursor: pointer;
-  transition: background 0.15s, transform 0.15s;
+  transition:
+    filter 0.15s,
+    transform 0.15s;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-
 .lineup-act-bar:hover {
-  background: #1a5f7a;
+  filter: brightness(1.15);
   transform: scaleY(1.06);
   z-index: 2;
 }
-
-.lineup-act-bar .act-name {
+.act-name {
   font-weight: 700;
-  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.lineup-act-bar .act-time {
-  font-size: 0.65rem;
-  opacity: 0.85;
+.act-time {
+  font-size: 0.62rem;
+  opacity: 0.88;
+  white-space: nowrap;
 }
-
-/* ── Act bottom sheet ─────────────────────────────── */
-.act-sheet-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 100;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.act-sheet-overlay.open {
-  display: block;
-  opacity: 1;
-}
-
-.act-sheet {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-radius: 20px 20px 0 0;
-  z-index: 101;
-  max-height: 88vh;
-  overflow-y: auto;
-  transform: translateY(100%);
-  transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
-  box-shadow: 0 -4px 32px rgba(0,0,0,0.18);
-}
-.act-sheet.open {
-  transform: translateY(0);
-}
-
-.act-sheet-handle {
-  width: 44px;
-  height: 5px;
-  background: #ddd;
-  border-radius: 3px;
-  margin: 12px auto 0;
-}
-
-.act-sheet-close {
+.bar-fav {
+  font-size: 0.7rem;
   position: absolute;
-  top: 12px;
-  right: 16px;
-  background: #f0f0f0;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
+  top: 4px;
+  right: 6px;
 }
-
-/* Video embed */
-.act-sheet-video-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 16px 0 0;
-}
-.act-sheet-video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Image placeholder (shown when no video) */
-.act-sheet-img-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  margin: 16px 0 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #247ba022, #f03228, #e3b505);
-}
-.act-sheet-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-}
-
-/* Body content */
-.act-sheet-inner {
-  padding: 0 18px 40px;
-}
-.act-sheet-body {
-  margin-top: 18px;
-}
-
-.act-sheet-stage {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #f03228;
-  margin: 0 0 4px;
-}
-.act-sheet-name {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 4px;
-}
-.act-sheet-tagline {
-  font-size: 0.95rem;
-  color: #555;
-  font-style: italic;
-  margin: 0 0 6px;
-}
-.act-sheet-time {
-  font-size: 0.85rem;
-  color: #247ba0;
-  font-weight: 700;
-  margin: 0;
-}
-
-.act-sheet-divider {
-  height: 1px;
-  background: #eee;
-  margin: 16px 0;
-}
-
-.act-sheet-section-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #247ba0;
-  margin: 18px 0 6px;
-}
-.act-sheet-description {
-  font-size: 0.95rem;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-}
-.act-sheet-placeholder-text {
-  font-size: 0.9rem;
-  color: #aaa;
-  font-style: italic;
-  margin: 0;
-}
-
-/* Stage color accents on the sheet */
-.act-sheet[data-stage="poton"] .act-sheet-stage { color: #e3b505; }
-.act-sheet[data-stage="lake"]  .act-sheet-stage { color: #f03228; }
-.act-sheet[data-stage="hangar"] .act-sheet-stage { color: #50c878; }
-.act-sheet[data-stage="club"]  .act-sheet-stage { color: #247ba0; }
-
-
