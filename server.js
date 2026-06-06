@@ -16,17 +16,28 @@ const io = socketIo(server, {
 
 const PORT = 8080;
 
-// Database connection
+// Database connection local
 const pool = mysql
   .createPool({
     host: "localhost",
     user: "root",
     password: "",
     database: "u_festival",
-    waitForConnections: true,
-    connectionLimit: 10,
+
   })
   .promise();
+
+
+
+  // TO DOMAIN ↓↓↓
+
+// For PRODUCTION (your domain):
+// const pool = mysql.createPool({
+//   host: "localhost",  // Get this from your hosting
+//   user: "u240653_u_festival",            // Get this from your hosting
+//   password: "r9rZG7HtHR7tujh6PCxd",    // Get this from your hosting
+//   database: "u240653_u_festival",          // Your database name
+// }).promise();
 
 app.use(cors());
 app.use(express.json());
@@ -35,43 +46,95 @@ app.use(express.static(__dirname)); // Serve your frontend
 // Store active connections and subscriptions
 const userSubscriptions = new Map(); // socketId -> { day, stage, artist }
 
-// API endpoint for initial lineup
+// API endpoint for initial lineup - FIXED VERSION
 app.get("/api/lineup", async (req, res) => {
+  const lang = req.query.lang || "nl";
+
   try {
     const [days] = await pool.query(
-      "SELECT id, slug, name_nl, name_en FROM days",
+      "SELECT id, slug, name_nl, name_en FROM days ORDER BY id",
     );
     const result = [];
 
     for (const day of days) {
       const [acts] = await pool.query(
         `
-                SELECT 
-                    a.name,
-                    a.tagline_nl, a.tagline_en,
-                    a.description_nl, a.description_en,
-                    a.video_url,
-                    TIME_FORMAT(a.begin_time, '%H:%i') as begin_time,
-                    TIME_FORMAT(a.end_time, '%H:%i') as end_time,
-                    s.slug as stage,
-                    ar.id as artist_id,
-                    ar.name as artist_name,
-                    ar.genre
-                FROM acts a
-                JOIN stages s ON a.stage_id = s.id
-                LEFT JOIN artists ar ON a.artist_id = ar.id
-                WHERE a.day_id = ?
-                ORDER BY a.begin_time
-            `,
+        SELECT 
+            a.name,
+            a.tagline_nl,
+            a.tagline_en,
+            a.description_nl,
+            a.description_en,
+            a.video_url,
+            TIME_FORMAT(a.begin_time, '%H:%i') as begin_time,
+            TIME_FORMAT(a.end_time, '%H:%i') as end_time,
+            s.slug as stage,
+            ar.id as artist_id,
+            ar.genre,
+            ar.origin_nl,
+            ar.origin_en,
+            ar.photo_url
+        FROM acts a
+        JOIN stages s ON a.stage_id = s.id
+        LEFT JOIN artists ar ON a.artist_id = ar.id
+        WHERE a.day_id = ?
+        ORDER BY a.begin_time
+        `,
         [day.id],
       );
 
-      result.push({ day: day.slug, acts });
+      // Format acts to match what frontend expects
+      const formattedActs = [];
+
+      for (const act of acts) {
+        // Get socials if artist exists
+        let socials = {};
+        if (act.artist_id) {
+          const [socialRows] = await pool.query(
+            "SELECT platform, handle_or_id FROM artist_socials WHERE artist_id = ?",
+            [act.artist_id],
+          );
+          socialRows.forEach((s) => {
+            socials[s.platform] = s.handle_or_id;
+          });
+        }
+
+        // Build the artist object exactly as frontend expects
+        const artistObj = act.artist_id
+          ? {
+              photo: act.photo_url || "",
+              genre: act.genre || "",
+              origin: lang === "nl" ? act.origin_nl || "" : act.origin_en || "",
+              origin_en: act.origin_en || "",
+              socials: socials,
+            }
+          : null;
+
+        formattedActs.push({
+          name: act.name,
+          tagline: lang === "nl" ? act.tagline_nl || "" : act.tagline_en || "",
+          tagline_en: act.tagline_en || "",
+          description:
+            lang === "nl" ? act.description_nl || "" : act.description_en || "",
+          description_en: act.description_en || "",
+          videoUrl: act.video_url,
+          "begin-time": act.begin_time,
+          "end-time": act.end_time,
+          stage: act.stage,
+          artist: artistObj,
+        });
+      }
+
+      result.push({
+        day: day.slug,
+        acts: formattedActs,
+      });
     }
 
     res.json(result);
   } catch (error) {
-    res.status(500).json({ error: "Database error" });
+    console.error("API Error:", error);
+    res.status(500).json({ error: "Database error: " + error.message });
   }
 });
 
