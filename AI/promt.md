@@ -48,3 +48,7 @@ how can i make a div that the width of it can go widder and begins in spefiek lo
 
 
 how can i add light and dark mode
+
+make the info.json into database sql 
+
+whats the difference if i just use mysql from phpMyadmin like whats the speed difference on phone with fast 4G and 5G

@@ -1,0 +1,30 @@
+{
+  "name": "8.1-u-festival-2026",
+  "version": "1.0.0",
+  "description": "**U Festival 2026** is een Progressive Web App (PWA) voor een festival die bezoekers een complete mobiele ervaring biedt. De app richt zich op het benutten van moderne smartphone-mogelijkheden om het festivalbezoek te verrijken, van navigatie en programmering tot informatie en interactie.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bilal-1-2/8.1-U-festival-2026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Bilal-1-2/8.1-U-festival-2026/issues"
+  },
+  "homepage": "https://github.com/Bilal-1-2/8.1-U-festival-2026#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.5",
+    "socket.io": "^4.8.3"
+  }
+}
