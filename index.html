@@ -24,11 +24,21 @@
           onclick="toggleTheme()"
           title="Thema wisselen"
         >
-          <span id="themeIcon">🌙</span>
+          <img
+            id="themeIcon"
+            src="assets/images/light-mode.png"
+            alt=""
+            class="theme-icon"
+          />
         </button>
         <!-- Language toggle -->
         <button class="hdr-btn lang-btn" id="langBtn" onclick="toggleLang()">
-          <span id="langLabel">EN</span>
+          <img
+            src="assets/images/Flag_of_the_Netherlands.svg"
+            class="flagLang"
+            id="langLabel"
+            alt=""
+          />
         </button>
         <!-- QR download -->
         <button class="hdr-btn" onclick="openQR()" title="QR code">
@@ -294,7 +304,9 @@
         </div>
 
         <button id="favBtn" onclick="openFavScreen()">
-          <span class="">Mijn Favoriet</span>
+          <span data-nl="Mijn favorieten" data-en="My favourites"
+            >Mijn favorieten</span
+          >
         </button>
         <div class="lineup-main" id="lineup-zaterdag"></div>
         <div class="lineup-main" id="lineup-zondag" style="display: none"></div>

@@ -13,7 +13,15 @@ let allActsByDay = {}; // { zaterdag: [...], zondag: [...] }
 function applyTheme(t) {
   currentTheme = t;
   document.documentElement.setAttribute("data-theme", t);
-  document.getElementById("themeIcon").textContent = t === "dark" ? "☀️" : "🌙";
+  // Swap icon (light-mode.png for light, dark-mode.png for dark)
+  const themeIcon = document.getElementById("themeIcon");
+  if (themeIcon) {
+    themeIcon.src =
+      t === "dark"
+        ? "assets/images/night-mode.png"
+        : "assets/images/light-mode.png";
+  }
+
   localStorage.setItem("ufest-theme", t);
 }
 function toggleTheme() {
@@ -39,6 +47,15 @@ function applyLang(lang) {
     el.innerHTML =
       lang === "nl" ? el.dataset.nl : el.dataset.en || el.dataset.nl;
   });
+
+  // Swap language flag
+  const flagEl = document.getElementById("langLabel");
+  if (flagEl) {
+    flagEl.src =
+      lang === "en"
+        ? "assets/images/Flag_of_the_United_Kingdom_(3-5).svg"
+        : "assets/images/Flag_of_the_Netherlands.svg";
+  }
 }
 function toggleLang() {
   applyLang(currentLang === "nl" ? "en" : "nl");
