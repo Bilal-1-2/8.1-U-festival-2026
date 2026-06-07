@@ -55,3 +55,7 @@ whats the difference if i just use mysql from phpMyadmin like whats the speed di
 
 
 ik wil een button bij de homepage als je dat clickt dan download je het
+
+@info.json
+
+add the photos paths

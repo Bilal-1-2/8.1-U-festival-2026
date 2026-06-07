@@ -269,26 +269,6 @@ function myFunction2() {
     .getElementById("info-Bereikbaarheid-myDropdown")
     .classList.toggle("show-Bereikbaarheid");
 }
-function myFunction3() {
-  document
-    .getElementById("info-algemeen-myDropdown")
-    .classList.toggle("show-algemeen");
-}
-function myFunction4() {
-  document
-    .getElementById("info-Bereikbaarheid-myDropdown")
-    .classList.toggle("show-Bereikbaarheid");
-}
-function myFunction5() {
-  document
-    .getElementById("info-algemeen-myDropdown")
-    .classList.toggle("show-algemeen");
-}
-function myFunction6() {
-  document
-    .getElementById("info-Bereikbaarheid-myDropdown")
-    .classList.toggle("show-Bereikbaarheid");
-}
 
 // ═══════════════════════════════════════════════
 //  DAY SWITCHER
@@ -457,12 +437,6 @@ function openActSheet(act) {
       ? act.description_en
       : act.description || "";
 
-  // placeholders
-  document.getElementById("actPractical").textContent =
-    currentLang === "en" ? "To be added later." : "Wordt later aangevuld.";
-  document.getElementById("actMoreInfo").textContent =
-    currentLang === "en" ? "To be added later." : "Wordt later aangevuld.";
-
   // artist block
   const ar = act.artist || {};
   const genre = ar.genre || "";
@@ -485,34 +459,51 @@ function openActSheet(act) {
     genre || origin || ar.photo ? "block" : "none";
 
   // socials
-  const socialsEl = document.getElementById("actSocials");
-  socialsEl.innerHTML = "";
-  if (ar.socials?.instagram) {
-    const a = document.createElement("a");
-    a.href = `https://instagram.com/${ar.socials.instagram}`;
-    a.target = "_blank";
-    a.className = "act-social-btn";
-    a.textContent = "📷 Instagram";
-    socialsEl.appendChild(a);
-  }
-  if (ar.socials?.spotify) {
-    const a = document.createElement("a");
-    a.href = `https://open.spotify.com/artist/${ar.socials.spotify}`;
-    a.target = "_blank";
-    a.className = "act-social-btn spotify";
-    a.textContent = "🎵 Spotify";
-    socialsEl.appendChild(a);
+
+  // photo fallback (if artist.photo is empty)
+  const expectedPhoto = (() => {
+    const name = act?.name || "";
+    // If you later rename files, adjust here.
+    // Current files in assets/images/acts/*.png
+    const fileByName = {
+      "Armin van Buuren": "Armin_van_Buuren.png",
+      Kensington: "Kensington,.png",
+      "De Staat": "De_Staat.png",
+      Navarone: "Navarone.png",
+      Dotan: "Dotan.png",
+      Froukje: "Froukje.png",
+      "Martin Garrix": "Martin_Garrix.png",
+      "Within Temptation": "Within_Temptation.png",
+      "Chef'Special": "Chef_Special.png",
+      "Eefje de Visser": "Eefje_de_Visser.png",
+      Spinvis: "Spinvis.png",
+    };
+
+    const file = fileByName[name];
+    return file ? `assets/images/acts/${file}` : null;
+  })();
+
+  if (!ar.photo && expectedPhoto) {
+    photoEl.innerHTML = `<img src="${expectedPhoto}" alt="${act.name}"/>`;
   }
 
   // video
   const embed = getEmbedUrl(act.videoUrl);
-  document.getElementById("actSheetVideoWrap").style.display = embed
-    ? "block"
-    : "none";
-  document.getElementById("actSheetImgWrap").style.display = embed
-    ? "none"
-    : "block";
-  document.getElementById("actSheetIframe").src = embed || "";
+  const videoWrap = document.getElementById("actSheetVideoWrap");
+  const imgWrap = document.getElementById("actSheetImgWrap");
+  const iframeEl = document.getElementById("actSheetIframe");
+
+  if (embed) {
+    // show video, hide the fallback image/gradient
+    videoWrap.style.display = "block";
+    imgWrap.style.display = "none";
+    iframeEl.src = embed;
+  } else {
+    // if there is no video: show only the info (no extra background blocks)
+    videoWrap.style.display = "none";
+    imgWrap.style.display = "none";
+    iframeEl.src = "";
+  }
 
   refreshFavUI();
 
@@ -577,7 +568,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
   deferredPrompt = e;
 
   const installBtn = document.getElementById("installBtn");
-
 
   console.log("beforeinstallprompt: install button shown");
 });
