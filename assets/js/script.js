@@ -30,10 +30,10 @@ function applyLang(lang) {
   document.getElementById("langLabel").textContent =
     lang === "nl" ? "EN" : "NL";
   localStorage.setItem("ufest-lang", lang);
-  
+
   // Reload lineup with new language
   loadAndRenderLineup();
-  
+
   // Swap all [data-nl][data-en] text nodes
   document.querySelectorAll("[data-nl]").forEach((el) => {
     el.innerHTML =
@@ -509,6 +509,9 @@ async function loadAndRenderLineup() {
     const data = await res.json();
     if (!Array.isArray(data)) return;
 
+    // reset to avoid duplicates on language refresh
+    allActsByDay = {};
+
     data.forEach((d) => {
       allActsByDay[d.day] = d.acts;
     });
@@ -516,12 +519,15 @@ async function loadAndRenderLineup() {
       renderActsForDay(day, acts),
     );
 
-    document.getElementById("lineup-zondag").style.display = "none";
-    document
-      .querySelectorAll(".lineup-dag-btn")
-      .forEach((b) =>
-        b.classList.toggle("active", b.dataset.day === "zaterdag"),
-      );
+    // default day: zaterdag (show only one day)
+    // IMPORTANT: do this before any content appears
+    showLineupDay("zaterdag");
+
+    // ensure only Saturday container is visible
+    const sat = document.getElementById("lineup-zaterdag");
+    const sun = document.getElementById("lineup-zondag");
+    if (sat) sat.style.display = "flex";
+    if (sun) sun.style.display = "none";
   } catch (e) {
     console.error("Error loading from API:", e);
     // Fallback to info.json if API fails

@@ -24,7 +24,9 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "fs": "^0.0.1-security",
     "mysql2": "^3.22.5",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "supabase": "^2.105.0"
   }
 }

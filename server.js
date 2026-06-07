@@ -1,6 +1,7 @@
 // server.js
 const express = require("express");
-const mysql = require("mysql2");
+const mysql = require('mysql2');
+const fs = require('fs');
 const cors = require("cors");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -31,13 +32,18 @@ const PORT = 8080;
 
   // TO DOMAIN ↓↓↓
 
-// For PRODUCTION (your domain):
 const pool = mysql.createPool({
-  host: "localhost",  // Get this from your hosting
-  user: "u240653_u_festival",            // Get this from your hosting
-  password: "r9rZG7HtHR7tujh6PCxd",    // Get this from your hosting
-  database: "u240653_u_festival",          // Your database name
+  host: "mysql-e8071ac-studentportal.i.aivencloud.com",        
+  user: "avnadmin",       
+  password: "AVNS_dy468sAVUCoV8eAp6Gn", 
+  database: "defaultdb",          
+  port: 17042,          
+  ssl: {
+    ca: fs.readFileSync('ca.pem') 
+  }
 }).promise();
+
+// mysql --host=mysql-e8071ac-studentportal.i.aivencloud.com --port=17042 --user=avnadmin --password=AVNS_dy468sAVUCoV8eAp6Gn defaultdb < "C:\xampp-4\htdocs\8.1-U-festival-2026\sql\u_festival.sql"
 
 app.use(cors());
 app.use(express.json());
