@@ -503,8 +503,7 @@ function closeActSheet() {
 // Replace the loadAndRenderLineup function in script.js
 async function loadAndRenderLineup() {
   try {
-    // Change this line from "info.json" to your API endpoint
-    const res = await fetch(`/api/lineup?lang=${currentLang}`);
+    const res = await fetch("info.json");
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (!Array.isArray(data)) return;
@@ -520,7 +519,6 @@ async function loadAndRenderLineup() {
     );
 
     // default day: zaterdag (show only one day)
-    // IMPORTANT: do this before any content appears
     showLineupDay("zaterdag");
 
     // ensure only Saturday container is visible
@@ -529,82 +527,7 @@ async function loadAndRenderLineup() {
     if (sat) sat.style.display = "flex";
     if (sun) sun.style.display = "none";
   } catch (e) {
-    console.error("Error loading from API:", e);
-    // Fallback to info.json if API fails
-    try {
-      const fallbackRes = await fetch("info.json");
-      const fallbackData = await fallbackRes.json();
-      fallbackData.forEach((d) => {
-        allActsByDay[d.day] = d.acts;
-      });
-      Object.entries(allActsByDay).forEach(([day, acts]) =>
-        renderActsForDay(day, acts),
-      );
-    } catch (fallbackError) {
-      console.error("Fallback also failed:", fallbackError);
-    }
+    console.error("Error loading info.json:", e);
   }
 }
 document.addEventListener("DOMContentLoaded", loadAndRenderLineup);
-
-// Add Socket.IO client
-const socketScript = document.createElement("script");
-socketScript.src = "https://cdn.socket.io/4.6.0/socket.io.min.js";
-socketScript.onload = () => {
-  console.log("Socket.IO loaded");
-
-  // Initialize WebSocket
-  let socket = io("http://localhost:8080");
-
-  socket.on("connect", () => {
-    console.log("✅ Connected to real-time server");
-    socket.emit("subscribe", {});
-  });
-
-  socket.on("notification", (data) => {
-    console.log("📢 Notification:", data);
-
-    // Show notification in browser
-    if ("Notification" in window && Notification.permission === "granted") {
-      new Notification("U Festival", { body: data.message });
-    }
-
-    // Show in-app notification
-    const notifDiv = document.createElement("div");
-    notifDiv.className = "live-notification";
-    notifDiv.innerHTML = `
-            <div class="notification-content">
-                <span>${data.type === "show_starting_soon" ? "⏰" : "🔴"}</span>
-                <span>${data.message}</span>
-                <button onclick="this.parentElement.parentElement.remove()">✕</button>
-            </div>
-        `;
-    document.body.insertBefore(notifDiv, document.body.firstChild);
-    setTimeout(() => notifDiv.remove(), 10000);
-
-    // Update homepage if live status changed
-    if (data.type === "show_starting_soon") {
-      const homeScreen = document.querySelector('[data-screen="home"]');
-      if (homeScreen && homeScreen.style.display !== "none") {
-        let liveCard = document.getElementById("live-status-card");
-        if (!liveCard) {
-          liveCard = document.createElement("div");
-          liveCard.id = "live-status-card";
-          homeScreen.insertBefore(liveCard, homeScreen.firstChild);
-        }
-        liveCard.innerHTML = `
-                    <div class="upcoming-notice">
-                        <strong>⏰ ${data.message}</strong>
-                        <div class="countdown-bar"></div>
-                    </div>
-                `;
-      }
-    }
-  });
-
-  // Request notification permission
-  if ("Notification" in window && Notification.permission === "default") {
-    Notification.requestPermission();
-  }
-};
-document.head.appendChild(socketScript);
