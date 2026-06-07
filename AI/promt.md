@@ -52,3 +52,6 @@ how can i add light and dark mode
 make the info.json into database sql 
 
 whats the difference if i just use mysql from phpMyadmin like whats the speed difference on phone with fast 4G and 5G
+
+
+ik wil een button bij de homepage als je dat clickt dan download je het

@@ -1,0 +1,19 @@
+{
+  "name": "U Festival 2026",
+  "short_name": "U Festival",
+  "description": "Festival app – lineup & info",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f03228",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "assets/images/logo/logo_white.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+

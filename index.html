@@ -4,9 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
     <title>U festival</title>
   </head>
   <body>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="U Festival" />
+
     <header>
       <div class="brand-container">
         <img
@@ -40,6 +52,7 @@
             alt=""
           />
         </button>
+
         <!-- QR download -->
         <button class="hdr-btn" onclick="openQR()" title="QR code">
           <span>QR</span>
@@ -60,6 +73,17 @@
           </p>
           <p style="font-size: 3rem">U FESTIVAL</p>
         </div>
+
+        <!-- Download as app (PWA install prompt) -->
+        <button
+          class="hdr-btn"
+          id="installBtn"
+          onclick="promptInstall()"
+          title="Install"
+          style="display: none"
+        >
+          <span>App</span>
+        </button>
         <div class="home-meldingen">
           <p
             data-nl="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum rerum nam delectus sit hic fugit amet, sapiente cum commodi quaerat quod quo dignissimos reiciendis aliquid!"

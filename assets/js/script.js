@@ -548,3 +548,29 @@ async function loadAndRenderLineup() {
   }
 }
 document.addEventListener("DOMContentLoaded", loadAndRenderLineup);
+
+// ── PWA INSTALL BUTTON ───────────────────────────────
+let deferredPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const btn = document.getElementById("installBtn");
+  if (btn) btn.style.display = "flex";
+});
+
+function promptInstall() {
+  const btn = document.getElementById("installBtn");
+  if (!deferredPrompt) {
+    // fallback: show install instructions via UA (simple)
+    if (btn) btn.textContent = "Open in browser";
+    return;
+  }
+
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.finally(() => {
+    deferredPrompt = null;
+    if (btn) btn.textContent = "App";
+  });
+}
