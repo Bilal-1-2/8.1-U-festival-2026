@@ -1,35 +1,67 @@
 /* ── INFO DROPDOWNS ─────────────────────────────────── */
 .info-algemeen-dropbtn,
-.info-Bereikbaarheid-dropbtn {
-  background: var(--secondary); color: white;
-  padding: 16px; font-size: 16px; width: 100%;
-  text-align: left; border-radius: 10px; border: none; cursor: pointer;
+.info-Bereikbaarheid-dropbtn,
+.info-dropbtn {
+  background: var(--secondary);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
   transition: background 0.2s;
 }
 .info-algemeen-dropbtn:hover,
-.info-Bereikbaarheid-dropbtn:hover { background: #1a5f7a; }
+.info-Bereikbaarheid-dropbtn:hover,
+.info-dropbtn:hover {
+  background: #1a5f7a;
+}
 
 .info-algemeen-dropdown,
-.info-Bereikbaarheid-dropdown {
-  position: relative; display: inline-block;
-  width: 100%; margin-bottom: 5px;
+.info-Bereikbaarheid-dropdown,
+.info-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 .info-algemeen-dropdown-content,
-.info-Bereikbaarheid-dropdown-content {
-  display: none; position: relative;
-  background: var(--bg2); color: var(--text);
-  margin-top: 8px; padding: 8px 12px;
+.info-Bereikbaarheid-dropdown-content,
+.info-dropdown-content {
+  display: none;
+  position: relative;
+  background: var(--bg2);
+  color: var(--text);
+  margin-top: 8px;
+  padding: 8px 12px;
   border-radius: 8px;
 }
-.show-algemeen     { display: block; }
-.show-Bereikbaarheid { display: block; }
-
-.info-algemeen-dropdown-content .info-subtitle,
-.info-Bereikbaarheid-dropdown-content .info-subtitle {
-  color: var(--secondary); font-weight: 700;
-  margin: 14px 0; font-size: 1rem;
+.show-algemeen {
+  display: block;
+}
+.show-Bereikbaarheid {
+  display: block;
+}
+.show-info-dropdown {
+  display: block;
 }
 
-a:link, a:visited { color: var(--secondary); }
-a:hover { opacity: 0.75; }
+.info-algemeen-dropdown-content .info-subtitle,
+.info-Bereikbaarheid-dropdown-content .info-subtitle,
+.info-dropdown-content .info-subtitle {
+  color: var(--secondary);
+  font-weight: 700;
+  margin: 14px 0;
+  font-size: 1rem;
+}
+
+a:link,
+a:visited {
+  color: var(--secondary);
+}
+a:hover {
+  opacity: 0.75;
+}

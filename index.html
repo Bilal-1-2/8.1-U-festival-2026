@@ -54,7 +54,7 @@
         </button>
 
         <!-- QR download -->
-        <button class="hdr-btn" onclick="openQR()" title="QR code">
+        <button class="hdr-btn" id="qrBtn" onclick="openQR()" title="QR code">
           <span>QR</span>
         </button>
       </div>
@@ -76,13 +76,15 @@
 
         <!-- Download as app (PWA install prompt) -->
         <button
-          class="hdr-btn"
+          class="installBtn"
           id="installBtn"
           onclick="promptInstall()"
           title="Install"
-          style="display: none"
         >
-          <span>App</span>
+          <img src="assets\download.svg" alt="" />
+          <span data-nl="App downloaden" data-en="Download the app"
+            >App downloaden</span
+          >
         </button>
         <div class="home-meldingen">
           <p
@@ -214,11 +216,16 @@
           </div>
         </div>
 
-        <div class="info-lockers">
-          <p class="info-subtitle" data-nl="Lockers" data-en="Lockers">
+        <div class="info-dropdown">
+          <button
+            class="info-dropbtn"
+            onclick="toggleInfoDropdown('info-lockers')"
+            data-nl="Lockers"
+            data-en="Lockers"
+          >
             Lockers
-          </p>
-          <div class="info-lockers-text">
+          </button>
+          <div id="info-lockers" class="info-dropdown-content">
             <p
               data-nl="Op het festivalterrein zijn kluisjes aanwezig waar je je spullen veilig kunt opbergen! Hier passen 3 à 4 jassen in."
               data-en="Lockers are available at the festival grounds to safely store your belongings. They fit 3–4 jackets."
@@ -236,9 +243,16 @@
           </div>
         </div>
 
-        <div class="info-faq">
-          <p class="info-subtitle" data-nl="FAQ" data-en="FAQ">FAQ</p>
-          <div class="info-faq-text">
+        <div class="info-dropdown">
+          <button
+            class="info-dropbtn"
+            onclick="toggleInfoDropdown('info-faq')"
+            data-nl="FAQ"
+            data-en="FAQ"
+          >
+            FAQ
+          </button>
+          <div id="info-faq" class="info-dropdown-content">
             <p>
               <strong
                 data-nl="Ik gebruik medicatie. Wat nu?"
@@ -281,11 +295,16 @@
           </div>
         </div>
 
-        <div class="info-GoldenGLU">
-          <p class="info-subtitle" data-nl="Golden-GLU" data-en="Golden-GLU">
+        <div class="info-dropdown">
+          <button
+            class="info-dropbtn"
+            onclick="toggleInfoDropdown('info-golden-glu')"
+            data-nl="Golden-GLU"
+            data-en="Golden-GLU"
+          >
             Golden-GLU
-          </p>
-          <div class="info-GoldenGLU-text">
+          </button>
+          <div id="info-golden-glu" class="info-dropdown-content">
             <p
               data-nl="Studenten van het GLU hebben speciale privileges en zijn herkenbaar aan een gouden armbandje."
               data-en="GLU students have special privileges and are recognizable by a golden wristband."
@@ -518,6 +537,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="assets/js/infoDropdown.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

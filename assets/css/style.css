@@ -74,10 +74,10 @@ header {
   align-items: center;
   gap: 10px;
 }
-.theme-icon{
+.theme-icon {
   height: 100%;
 }
-.flagLang{
+.flagLang {
   height: 2.4rem;
   width: 2rem;
 }
@@ -123,6 +123,23 @@ main .screen[data-screen="home"] {
   flex-direction: column;
   overflow-y: auto;
   background: var(--bg);
+}
+
+.installBtn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.installBtn img {
+  height: 1.3rem;
+  width: 1,5rem;
+}
+.installBtn span {
+  font-size: 1.2rem;
 }
 main .screen[data-screen="info"] {
   flex-direction: column;

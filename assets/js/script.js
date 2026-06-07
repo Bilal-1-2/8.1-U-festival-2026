@@ -269,6 +269,26 @@ function myFunction2() {
     .getElementById("info-Bereikbaarheid-myDropdown")
     .classList.toggle("show-Bereikbaarheid");
 }
+function myFunction3() {
+  document
+    .getElementById("info-algemeen-myDropdown")
+    .classList.toggle("show-algemeen");
+}
+function myFunction4() {
+  document
+    .getElementById("info-Bereikbaarheid-myDropdown")
+    .classList.toggle("show-Bereikbaarheid");
+}
+function myFunction5() {
+  document
+    .getElementById("info-algemeen-myDropdown")
+    .classList.toggle("show-algemeen");
+}
+function myFunction6() {
+  document
+    .getElementById("info-Bereikbaarheid-myDropdown")
+    .classList.toggle("show-Bereikbaarheid");
+}
 
 // ═══════════════════════════════════════════════
 //  DAY SWITCHER
@@ -556,8 +576,10 @@ window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
 
-  const btn = document.getElementById("installBtn");
-  if (btn) btn.style.display = "flex";
+  const installBtn = document.getElementById("installBtn");
+
+
+  console.log("beforeinstallprompt: install button shown");
 });
 
 function promptInstall() {
