@@ -59,3 +59,7 @@ ik wil een button bij de homepage als je dat clickt dan download je het
 @info.json
 
 add the photos paths
+
+i want to       <section class="screen" data-screen="map">
+      <img src="assets\images\map\kaart_festival_no_markers.svg" alt="">
+      </section> to be able to zoom in and out also this map should be by original size like not locked down by the screen size also there would be Markers on het

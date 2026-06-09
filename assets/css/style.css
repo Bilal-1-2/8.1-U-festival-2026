@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700&display=swap");
 @import url("info.css");
 @import url("lineup.css");
+@import url("map-styles-additions.css");
 
 /* ── THEME TOKENS ───────────────────────────────────── */
 :root {
@@ -107,10 +108,15 @@ header {
 /* ── MAIN ───────────────────────────────────────────── */
 main {
   width: 100%;
-  height: 82vh;
+  height: calc(82vh - 16px);
   display: flex;
   background: var(--bg);
   color: var(--text);
+}
+
+/* Ensure screens (including map) always have real height on mobile/when toggling */
+main .screen {
+  min-height: 0;
 }
 main .screen {
   display: none;
@@ -136,7 +142,7 @@ main .screen[data-screen="home"] {
 
 .installBtn img {
   height: 1.3rem;
-  width: 1,5rem;
+  width: 1, 5rem;
 }
 .installBtn span {
   font-size: 1.2rem;
@@ -151,10 +157,12 @@ main .screen[data-screen="lineup"] {
   overflow: hidden;
   background: var(--bg);
 }
+
+/* MAP: ensure it shows and keeps height when toggling screens */
 main .screen[data-screen="map"] {
   flex-direction: column;
-  background: #118ab2;
-  color: #fff;
+  overflow: hidden;
+  background: var(--bg);
 }
 
 /* ── FOOTER ─────────────────────────────────────────── */

@@ -1,18 +1,16 @@
 /* ═══════════════════════════════════════════════════════════════
-   MAP SCREEN  — add these rules to your style.css
+   MAP SCREEN
    ═══════════════════════════════════════════════════════════════ */
 
-/* Screen container: fill everything between header and footer */
-.screen[data-screen="map"] {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;          /* assumes .screen already gets a fixed height from your layout */
-  overflow: hidden;
-  padding: 0;
-  background: var(--bg-color, #f4f4f4);
+/* The map screen needs position:relative so #map-wrapper's
+   position:absolute/inset:0 has a real containing block */
+main .screen[data-screen="map"] {
+  position: relative !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #3c824a !important;
 }
+
 
 /* ── Viewport ─────────────────────────────────────────────────── */
 #map-wrapper {
@@ -20,7 +18,7 @@
   inset: 0;
   overflow: hidden;
   cursor: grab;
-  touch-action: none;    /* let JS handle all touch gestures */
+  touch-action: none;
   user-select: none;
 }
 #map-wrapper:active {
@@ -32,11 +30,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform-origin: 0 0;
-  will-change: transform;
-  /* Natural SVG size — the JS sets scale so it fits on load */
   width: 2330.58px;
   height: 1353.19px;
+  will-change: transform;
+  transform-origin: 0 0;
 }
 
 /* ── Map image ────────────────────────────────────────────────── */
@@ -44,36 +41,54 @@
   display: block;
   width: 2330.58px;
   height: 1353.19px;
-  pointer-events: none;   /* clicks go through to markers/canvas */
+  pointer-events: none;
 }
 
 /* ── Markers ──────────────────────────────────────────────────── */
 .map-marker {
   position: absolute;
-  transform: translate(-50%, -100%); /* anchor bottom-center to the coordinate */
+  transform: translate(-50%, -100%);
   cursor: pointer;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .map-marker-dot {
   width: 22px;
   height: 22px;
   border-radius: 50%;
   border: 2.5px solid #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,.45);
-  transition: transform .15s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s;
 }
 .map-marker:hover .map-marker-dot {
   transform: scale(1.25);
 }
 
-/* tiny label under the dot, only visible at higher zoom */
+/* SVG marker size */
+.map-marker-svg {
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  transition: transform 0.15s;
+}
+
+/* Keep marker scale tied to zoom (set by JS on zoom events). */
+.map-marker-svg {
+  transform-origin: center;
+}
+
+.map-marker:hover .map-marker-svg {
+  transform: scale(1.1);
+}
+
 .map-marker-label {
   margin-top: 3px;
-  background: rgba(0,0,0,.65);
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
   font-size: 10px;
   padding: 1px 5px;
@@ -81,7 +96,7 @@
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transition: opacity .15s;
+  transition: opacity 0.15s;
 }
 .map-marker:hover .map-marker-label {
   opacity: 1;
@@ -91,33 +106,51 @@
 .map-popup {
   position: absolute;
   transform: translate(-50%, calc(-100% - 30px));
-  background: var(--card-bg, #fff);
-  color: var(--text-color, #111);
+  background: var(--bg);
+  color: var(--text);
   border-radius: 10px;
   padding: 10px 14px 10px 12px;
-  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
   z-index: 20;
   display: flex;
   align-items: center;
   gap: 8px;
+  /* Default font-size (will be increased when zooming out via JS counter-scale) */
   font-size: 14px;
   font-weight: 600;
   min-width: 140px;
   white-space: nowrap;
-  animation: popupIn .15s ease;
-}
-@keyframes popupIn {
-  from { opacity: 0; transform: translate(-50%, calc(-100% - 20px)); }
-  to   { opacity: 1; transform: translate(-50%, calc(-100% - 30px)); }
+  animation: popupIn 0.15s ease;
 }
 
+/* Make popup text scale similarly to marker label/readability.
+   Because the popup isn't counter-scaled in JS, we keep this small baseline.
+   The actual “bigger when zooming out” effect is achieved by the larger counter-scaled marker label area. */
+.map-popup strong {
+  /* Popup text should stay readable; JS counter-scaling is applied to
+     marker elements, not the popup. Keep popup size modest. */
+  font-size: 16px;
+}
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 30px));
+  }
+}
 .map-popup-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-
+/* .map-popup strong{
+  font-size: 2rem;
+} */
 .map-popup-close {
   position: absolute;
   top: 4px;
@@ -126,7 +159,7 @@
   border: none;
   font-size: 11px;
   cursor: pointer;
-  color: var(--text-muted, #888);
+  color: var(--text2);
   line-height: 1;
   padding: 0;
 }
@@ -141,34 +174,25 @@
   flex-direction: column;
   gap: 6px;
 }
-
 .map-ctrl-btn {
   width: 40px;
   height: 40px;
   border-radius: 10px;
   border: none;
-  background: var(--card-bg, #fff);
-  color: var(--text-color, #111);
+  background: var(--bg);
+  color: var(--text);
   font-size: 20px;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .1s, box-shadow .1s;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
 }
 .map-ctrl-btn:active {
-  transform: scale(.92);
-  box-shadow: 0 1px 4px rgba(0,0,0,.15);
-}
-.map-ctrl-reset {
-  font-size: 18px;
-}
-
-/* Dark-theme overrides (if you use [data-theme="dark"]) */
-[data-theme="dark"] .map-popup,
-[data-theme="dark"] .map-ctrl-btn {
-  background: #1e1e1e;
-  color: #f0f0f0;
+  transform: scale(0.92);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }

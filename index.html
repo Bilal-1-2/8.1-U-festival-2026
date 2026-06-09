@@ -2,7 +2,10 @@
 <html lang="nl" data-theme="light" data-lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- PWA -->
@@ -10,6 +13,8 @@
     <meta name="theme-color" content="#000000" />
 
     <title>U festival</title>
+
+
   </head>
   <body>
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -57,6 +62,8 @@
         <button class="hdr-btn" id="qrBtn" onclick="openQR()" title="QR code">
           <span>QR</span>
         </button>
+
+
       </div>
     </header>
 
@@ -357,8 +364,25 @@
 
       <!-- MAP -->
       <section class="screen" data-screen="map">
-
-      <img src="assets\images\map\kaart_festival_no_markers.svg" alt="">
+        <div class="map-controls">
+          <button id="map-zoom-in" class="map-ctrl-btn" title="Inzoomen">
+            +
+          </button>
+          <button id="map-zoom-out" class="map-ctrl-btn" title="Uitzoomen">
+            −
+          </button>
+          <button id="map-reset" class="map-ctrl-btn" title="Reset">⌖</button>
+        </div>
+        <div id="map-wrapper">
+          <div id="map-canvas">
+            <img
+              id="map-svg"
+              src="assets/images/map/kaart_festival_no_markers.svg"
+              alt="Festival kaart"
+              draggable="false"
+            />
+          </div>
+        </div>
       </section>
     </main>
 
@@ -507,8 +531,25 @@
       </div>
     </div>
 
+
+  <!-- src="assets\images\map\marker_stage1_ponton.svg"
+  src="assets\images\map\marker_stage2_the_lake.svg"
+  src="assets\images\map\marker_stage3_the_club.svg"
+  src="assets\images\map\marker_stage4_hangar.svg"
+  src="assets/images/map/marker_bar.svg"
+  src="assets\images\map/marker_entrance_exit.svg"
+  src="assets\images\map/marker_first_aid.svg"
+  src="assets\images\map/marker_food.svg"
+  src="assets\images\map/marker_ice_cream.svg"
+  src="assets\images\map/marker_locker.svg"
+  src="assets\images\map/marker_merchandise.svg"
+  src="assets\images\map/marker_toilet.svg" -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="assets/js/infoDropdown.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/mapInteraction.js"></script>
+    <!-- <script src="assets/js/mapSidebar.js"></script> -->
   </body>
-</html>
+
