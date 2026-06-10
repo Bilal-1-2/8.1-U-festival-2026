@@ -2,7 +2,7 @@
 
 ## Projectbeschrijving
 
-**U Festival 2026** is een Progressive Web App (PWA) voor een festival die bezoekers een complete mobiele ervaring biedt. De app richt zich op het benutten van moderne smartphone-mogelijkheden om het festivalbezoek te verrijken, van navigatie en programmering tot informatie en interactie.
+**U Festival 2026** is een Progressive Web App (PWA) voor een festival die bezoekers een complete mobiele ervaring biedt.
 
 ---
 
@@ -32,18 +32,15 @@
 
 | Taal / Framework      | Toepassing                                                                                                                                                                            |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **React.js**          | Bouwen van een dynamische, component-gebaseerde gebruikersinterface. React maakt het eenvoudig om herbruikbare UI-componenten te maken zoals het schedule, de kaart en nieuwsblokjes. |
+
 | **HTML5**             | Structuur en semantiek van de webpagina's, inclusief ondersteuning voor nieuwe formuliertypes en media-elementen.                                                                     |
 | **CSS3**              | Styling, lay-out, responsief ontwerp en animaties voor een vloeiende gebruikerservaring op elk schermformaat.                                                                         |
 | **JavaScript (ES6+)** | Interactiviteit, API-aanroepen, manipulatie van de DOM en logica voor telefoonfuncties zoals camera en GPS.                                                                           |
-| **Anime.js**          | Bibliotheek voor beweging en animatie bij schermwisselingen en interactie.                                                                                                            |
+                                                                                                        |
 
-### Backend
+### Backend / Data
 
-| Taal / Framework | Toepassing                                                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Node.js**      | Server-side runtime om een snelle, schaalbare backend te draaien. Node.js is ideaal voor real-time applicaties zoals live updates tijdens het festival. |
-| **MySQL**        | Relationele database voor het opslaan van gebruikersgegevens, programma's, favoriete artiesten, reviews en locatiegegevens.                             |
+Dit project gebruikt **geen server-side backend of database**. Data (zoals de line-up) wordt ingeladen vanuit **`info.json`** en rechtstreeks geserveerd via statische bestanden (XAMPP).
 
 ### PWA & Tools
 
@@ -64,9 +61,9 @@ De app maakt optimaal gebruik van de hardware-mogelijkheden van smartphones om h
 
 ### 📍 GPS (Locatiebepaling)
 
-- **Festivalkaart**: Real-time navigatie over het festivalterrein met je huidige locatie.
+
 - **Podium-navigatie**: Routebeschrijving naar verschillende podia, eetkraampjes en voorzieningen.
-- **Vrienden zoeken (nice to have)**: Bekijk waar je vrienden zich bevinden op het terrein (indien ingeschakeld).
+
 
 ### 📱 Touchscreen & Gebarenherkenning
 
@@ -75,7 +72,7 @@ De app maakt optimaal gebruik van de hardware-mogelijkheden van smartphones om h
   - **Swipe links/rechts**: Navigeren tussen tabbladen (Home, Info, Schedule, Map).
   - **Pinch-to-zoom**: In- en uitzoomen op de festivalkaart.
   - **Tik & Houd vast**: Snel voorvertoningen van artiesten of locaties bekijken.
-  - **Shake**: Schudden met je telefoon om een willekeurige artiest uit het programma te ontdekken.
+
 
 ---
 
@@ -137,7 +134,7 @@ De app bestaat uit **4 hoofdschermen**, bereikbaar via de onderste navigatiebalk
 | **Home**     | Meldingen en nieuws over het festival tijdens het evenement. Weergegeven als blokjes onder elkaar. _(Inhoud nog niet definitief.)_ |
 | **Info**     | Algemene festivalinformatie, weergegeven in een accordion-element.                                                                 |
 | **Schedule** | Interactief blokschema van het festivalprogramma.                                                                                  |
-| **Map**      | Interactieve kaart van het festivalterrein inclusief GPS-locatie.                                                                  |
+| **Map**      | Interactieve kaart van het festivalterrein                                                                 |
 
 ### Taalwissel & Thema
 
@@ -196,9 +193,8 @@ De volgende content is beschikbaar en moet eenvoudig aanpasbaar blijven:
 ## Installatie & Opstarten
 
 1. Clone of plaats het project in je lokale webserver-map (bijv. `c:/xampp-4/htdocs/`).
-2. Zorg dat je **Node.js** en **MySQL** geïnstalleerd hebt voor de backend-functionaliteiten.
-3. Open `index.html` in je browser of start een lokale server om de app te bekijken.
-4. Scan de QR-code met je telefoon om de PWA te installeren.
+2. Open `index.html` in je browser of start een lokale server om de app te bekijken.
+3. Scan de QR-code met je telefoon om de PWA te installeren.
 
 ---
 
